@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab:600i,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Lato';
+  font-size: 10px;
+  color: #333333;
+}
+
+h1,
+h2 {
+  font-family: 'Zilla Slab';
+}
+
+h1 {
+  font-size: 5.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: 600;
+  font-style: italic;
+}
+
+h3 {
+  font-size: 3rem;
+  font-family: 'Lato';
+  font-weight: 700;
+}
+
+p {
+  font-size: 1.5rem;
+  font-family: 'Lato';
+}
+
+strong {
+  color: pink;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: [side-nav] 15% [content-body] auto;
+}
+
+#nav-wrap,
+#content-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#nav-wrap {
+  grid-column: side-nav;
+  align-items: center;
+  justify-content: center;
+}
+
+#nav-wrap .nav-link {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 50px 0;
+  cursor: pointer;
+}
+
+#profile-wrap {
+  width: 200px;
+  height: 200px;
+  border-radius: 30%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0;
+  box-shadow: 25px 25px 50px 0 white inset, -25px -25px 50px 0 white inset;
+}
+
+#profile-wrap img {
+  width: 100%;
+  height: 100%;
+}
+
+#content-wrap {
+  min-width: 100%;
+  min-height: 100%;
+  grid-column: content-body;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+#splash {
+  box-sizing: border-box;
+  padding: 20px 0;
+
+  background: green;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-underline {
+  border: 3px solid #333333;
+  height: 0px;
+  width: 150px;
+}

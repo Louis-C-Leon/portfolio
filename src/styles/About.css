@@ -1,0 +1,51 @@
+#about {
+  background: black;
+  box-sizing: border-box;
+  padding: 20px 0;
+  min-height: 100vh;
+}
+
+#about h1,
+#about h2 {
+  padding: 5px 0;
+}
+
+#about .about-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#about .sections {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#about .sections div {
+  width: 50%;
+}
+
+#about .sections .about-me,
+#about .sections .skills-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#profile-photo {
+  width: 200px;
+  height: auto;
+  border-radius: 50%;
+}
+
+#about .blurbs {
+  display: flex;
+}
+
+#about .blurbs .blurb-section {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
