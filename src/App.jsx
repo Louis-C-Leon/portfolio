@@ -1,5 +1,6 @@
 import React, { useRef, useCallback, useState } from 'react';
 import About from './About.jsx';
+import Projects from './Projects.jsx';
 import './styles/reset.css';
 import './styles/App.css';
 
@@ -53,8 +54,9 @@ export default () => {
     <>
       <Nav scrollTo={scrollTo} />
       <div ref={wrapper} id="content-wrap">
-        <Splash reference={home} />
-        <About reference={about} />
+        {/* <Splash reference={home} />
+        <About reference={about} /> */}
+        <Projects reference={projects} />
       </div>
     </>
   );

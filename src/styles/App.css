@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Zilla+Slab:600i,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:300i,400,700&display=swap');
 
 html,
 body {
@@ -100,20 +100,63 @@ a {
   scroll-behavior: smooth;
 }
 
-#splash {
-  box-sizing: border-box;
-  padding: 20px 0;
-
-  background: green;
+#splash,
+#about,
+#projects {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+#splash {
+  background: green;
+  min-height: 100vh;
 }
 
 .title-underline {
   border: 3px solid #333333;
   height: 0px;
   width: 150px;
+}
+
+.modal-darken {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #33333399;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  width: 500px;
+  height: 500px;
+  z-index: 6;
+}
+
+.modal-body .carousel {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.modal-body img {
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
