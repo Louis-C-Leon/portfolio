@@ -54,11 +54,11 @@ export default () => {
   return (
     <>
       <Canvas />
-      <Nav scrollTo={scrollTo} />
+      {/* <Nav scrollTo={scrollTo} /> */}
       <div ref={wrapper} id="content-wrap">
         {/* <Splash reference={home} />
-        <About reference={about} /> */}
-        {/* <Projects reference={projects} /> */}
+        <About reference={about} />
+        <Projects reference={projects} /> */}
       </div>
     </>
   );
