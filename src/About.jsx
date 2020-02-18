@@ -69,11 +69,11 @@ const Body = () => (
   </div>
 );
 
-export default ({ reference }) => {
+export default function About({ reference }) {
   return (
     <div ref={reference} id="about">
       <Header />
       <Body />
     </div>
   );
-};
+}

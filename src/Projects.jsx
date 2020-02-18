@@ -31,11 +31,6 @@ const ProjectModal = ({ projects, select, selected }) => {
       nextImg();
     }, 500);
   };
-  // useEffect(() => {
-  //   if (scrolling) {
-  //     setTimeout(() => setScrolling(false), 1000);
-  //   }
-  // }, [scrolling, setScrolling]);
   console.log(idx);
   const prevStyle = {
     transition: scrolling ? 'transform 0.5s' : 'none',
@@ -97,7 +92,7 @@ const ProjectGrid = ({ projects, select }) => {
   );
 };
 
-export default ({ reference }) => {
+export default function Projects({ reference }) {
   const [selected, setSelected] = useState(null);
   const select = name => () => setSelected(name);
   return (
@@ -112,4 +107,4 @@ export default ({ reference }) => {
       />
     </div>
   );
-};
+}

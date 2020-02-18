@@ -28,4 +28,19 @@ export default {
     thumbnail: sc,
     gallery: [sc1, sc2, sc3],
   },
+  // MyPhotoJourney: {
+  //   url: 'https://myphotojourney.herokuapp.com/#/',
+  //   description: `This social/travel/photo sharing app was inspired by a D3 project that a team member made based
+  //   on his European backpacking trip. We all felt that this would be a fun idea to expand into a social web app,
+  //   so we formed a small team of App Academy students to expand the project into a application using React, Redux,
+  //   JavaScript, and D3 on the frontend, and MongoDB, Node.js, and Express.js on the backend.
+
+  //   As a member of a four-engineer team, I wrote custom API routes, data validations, and frontend components to
+  //   dynamically and robustly handle user inputs. Our app allows users to upload vacation photos, and then places
+  //   them on a map based on the user-described location. As such, I needed to use a geocoder to make API calls for
+  //   location informatino and then dynamically render that information back to the user. I designed location searches
+  //   specific enough to avoid ambiguous or conflicting locations, but general enough to handle mild input errors, typos,
+  //   or inexact location names. I wrote informative errors and frontend components that update the user about the location
+  //   of each photo, whether the backend has found the location, and other information dynamically as the user types.`,
+  // },
 };

@@ -1,6 +1,7 @@
-import React, { useRef, useCallback, useState } from 'react';
+import React, { useRef, useCallback, useState, useEffect } from 'react';
 import About from './About.jsx';
 import Projects from './Projects.jsx';
+import Canvas from './Canvas.jsx';
 import './styles/reset.css';
 import './styles/App.css';
 
@@ -52,11 +53,12 @@ export default () => {
   );
   return (
     <>
+      <Canvas />
       <Nav scrollTo={scrollTo} />
       <div ref={wrapper} id="content-wrap">
         {/* <Splash reference={home} />
         <About reference={about} /> */}
-        <Projects reference={projects} />
+        {/* <Projects reference={projects} /> */}
       </div>
     </>
   );
