@@ -42,23 +42,22 @@ export default () => {
   const about = useRef(null);
   const projects = useRef(null);
   const contact = useRef(null);
-  const wrapper = useRef(null);
   const [refs, setRefs] = useState({ home, about, projects, contact });
   const scrollTo = useCallback(
     refName => () => {
       console.log(refs[refName].current.offsetTop);
-      wrapper.current.scrollTo(0, refs[refName].current.offsetTop);
+      window.scrollTo(0, refs[refName].current.offsetTop);
     },
     [refs]
   );
   return (
     <>
       <Canvas />
-      {/* <Nav scrollTo={scrollTo} /> */}
-      <div ref={wrapper} id="content-wrap">
-        {/* <Splash reference={home} />
+      <Nav scrollTo={scrollTo} />
+      <div id="content-wrap">
+        <Splash reference={home} />
         <About reference={about} />
-        <Projects reference={projects} /> */}
+        <Projects reference={projects} />
       </div>
     </>
   );

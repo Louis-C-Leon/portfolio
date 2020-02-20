@@ -1,43 +1,67 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 
 export default function Canvas() {
-  const [size, setSize] = useState({
-    width: Math.floor(window.innerWidth / 2),
-    height: Math.floor(window.innerHeight / 2),
+  // const [size, setSize] = useState({
+  //   width: window.innerWidth,
+  //   height: window.innerHeight,
+  // });
+  const size = useRef({
+    width: window.innerWidth,
+    height: window.innerHeight,
   });
+  // acceleration applied to each particle:
+  const accel = useRef({ x: 0, y: 0.1 });
   const mousePos = useRef(null);
   const ctx = useRef(null);
   const startTime = useRef(0);
   const particles = useRef([]);
   const canvas = useRef(null);
-  // resize canvas element
+  const emitting = useRef(null);
+  // resize canvas element:
   useEffect(() => {
     function handleResize() {
-      setSize({
-        width: Math.floor(window.innerWidth / 2),
-        height: Math.floor(window.innerHeight / 2),
-      });
-    }
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [setSize]);
-  // track mouse position
-  useEffect(() => {
-    console.log('mousemove');
-    function handleMouseMove(e) {
-      mousePos.current = {
-        x: Math.floor(e.clientX / 2),
-        y: Math.floor(e.clientY / 2),
+      size.current = {
+        width: window.innerWidth,
+        height: window.innerHeight,
       };
     }
-    // function handleMouseLeave(e) {
-    //   setMousePos(null);
-    //   console.log('leaving!');
-    // }
-    // window.addEventListener('mouseleave', handleMouseLeave);
+    // window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [size]);
+  // track mouse events:
+  useEffect(() => {
+    let timeout = null;
+    function handleMouseMove(e) {
+      e.stopPropagation();
+      console.log('start');
+      emitting.current = true;
+      mousePos.current = {
+        x: e.clientX,
+        y: e.clientY,
+      };
+      if (timeout) clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        console.log('stop');
+        emitting.current = false;
+      }, 500);
+    }
+    function handleMouseOut(e) {
+      mousePos.current = null;
+    }
+    function randomAcceleration() {
+      const a = { x: (Math.random() - 0.5) / 2, y: Math.random() - 0.5 };
+      accel.current = a;
+    }
+    window.addEventListener('click', randomAcceleration);
+    window.addEventListener('mouseout', handleMouseOut);
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [mousePos]);
+
+    return function cleanup() {
+      window.removeEventListener('click', randomAcceleration);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseout', handleMouseOut);
+    };
+  }, [mousePos, accel, emitting]);
 
   // Once the canvas element loads, save the context and start the animatino
   useEffect(() => {
@@ -46,56 +70,88 @@ export default function Canvas() {
     }
   }, [canvas]);
 
-  // helper fns for the animation
+  /**
+   * Particle object: { x: Number, y: Number, vx: Number, vy: Number }
+   * x and y represent a position vector
+   * vx and vy represent a velocity vector
+   */
+
+  /**
+   * Animation functions/logic go below
+   */
+  function randomVal(max) {
+    return Math.random() * max - max / 2;
+  }
   function drawParticle(p) {
-    console.log(p);
-    ctx.current.fillRect(p.x, p.y, 1, 1);
+    ctx.current.fillStyle = '#C7FCEB40';
+    ctx.current.fillRect(p.x, p.y, 4, 4);
   }
   function moveParticle(p) {
+    // Apply current velocity
     p.x += p.vx;
     p.y += p.vy;
+    // Particle bounces off canvas edges
+    if (p.x < 0) {
+      p.x = 0;
+      p.vx = p.vx * -1 * 0.5;
+      p.vy = p.vy * -1 * 0.5;
+    } else if (p.x > canvas.current.width) {
+      p.x = canvas.current.width;
+      p.vx = p.vx * -1 * 0.5;
+      p.vy = p.vy * -1 * 0.5;
+    }
+    if (p.y < 0) {
+      p.y = 0;
+      p.vx = p.vx * -1 * 0.5;
+      p.vy = p.vy * -1 * 0.5;
+    } else if (p.y > canvas.current.height) {
+      p.y = canvas.current.height;
+      p.vx = p.vx * -1 * 0.5;
+      p.vy = p.vy * -1 * 0.5;
+    }
     return p;
   }
+  // accelParticle takes a second argument v;
+  // v is an acceleration vector to add to the particle's velocity vector
+  // v: { x: Number, y: Number }
   function accelParticle(p, v) {
     p.vx += v.x;
     p.vy += v.y;
     return p;
   }
+
+  // renderParticle calls the other animation functions
+  function renderParticle(p, v) {
+    accelParticle(p, v);
+    moveParticle(p);
+    drawParticle(p);
+  }
   // draw animation frame
   const draw = useCallback(
     t => {
-      ctx.current.clearRect(0, 0, canvas.current.width, canvas.current.height);
+      ctx.current.fillStyle = '#494368';
+      ctx.current.fillRect(0, 0, canvas.current.width, canvas.current.height);
       if (!startTime.current) {
         startTime.current = t;
       }
       const progress = t - startTime.current;
-      if (particles.current.length < 40 && mousePos.current) {
-        particles.current.push({
-          x: mousePos.current.x,
-          y: mousePos.current.y,
-          vx: Math.floor(Math.random() * 6 - 3),
-          vy: 0,
-        });
-      }
-      if (progress > 50 && mousePos.current) {
-        console.log('resetting!');
+      if (progress > 30 && mousePos.current && emitting.current) {
         startTime.current = t;
-        particles.current.shift();
-        particles.current.push({
-          x: mousePos.current.x,
-          y: mousePos.current.y,
-          vx: Math.floor(Math.random() * 6 - 3),
-          vy: 0,
-        });
+        // remove particle from list if we're at the max number;
+        if (particles.current.length >= 100) particles.current.shift();
+        // newParticle has random displacement from the mouse, and random velocity;
+        const newParticle = {
+          x: mousePos.current.x + randomVal(10),
+          y: mousePos.current.y + randomVal(10),
+          vx: randomVal(10),
+          vy: randomVal(10),
+        };
+        particles.current.push(newParticle);
       }
-      particles.current.forEach(p => {
-        accelParticle(p, { x: 0, y: 0.1 });
-        moveParticle(p);
-        drawParticle(p);
-      });
+      particles.current.forEach(p => renderParticle(p, accel.current));
       window.requestAnimationFrame(draw);
     },
-    [mousePos, startTime, particles, canvas, ctx]
+    [mousePos, startTime, particles, canvas, ctx, accel, emitting]
   );
 
   useEffect(() => {
@@ -104,7 +160,7 @@ export default function Canvas() {
     }
   }, [ctx]);
 
-  const { width, height } = size;
+  const { width, height } = size.current;
   return (
     <canvas
       width={`${width}px`}

@@ -4,10 +4,11 @@
 html,
 body {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   font-family: 'Lato';
   font-size: 10px;
-  color: #333333;
+  color: #ada9bb;
+  scroll-behavior: smooth;
 }
 
 h1,
@@ -38,7 +39,7 @@ p {
 }
 
 strong {
-  color: pink;
+  color: #a06a65;
 }
 
 a {
@@ -48,23 +49,26 @@ a {
 }
 
 #root {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
-  display: grid;
-  grid-template-columns: [side-nav] 15% [content-body] auto;
+  display: flex;
 }
 
 #nav-wrap,
 #content-wrap {
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 #nav-wrap {
-  grid-column: side-nav;
-  align-items: center;
+  position: fixed;
+  height: 100%;
+  width: 150px;
+  padding-left: 20px;
+  align-items: flex-start;
   justify-content: center;
 }
 
@@ -95,29 +99,28 @@ a {
 #content-wrap {
   min-width: 100%;
   min-height: 100%;
-  grid-column: content-body;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
 }
 
 #splash,
 #about,
-#projects {
+#projects,
+#contact {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px 0;
   box-sizing: border-box;
+  padding-left: 150px;
 }
 
 #splash {
-  background: green;
   min-height: 100vh;
 }
 
 .title-underline {
-  border: 3px solid #333333;
+  border: 3px solid #ada9bb;
   height: 0px;
   width: 150px;
 }
