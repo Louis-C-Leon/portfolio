@@ -94,19 +94,19 @@ export default function Canvas() {
     if (p.x < 0) {
       p.x = 0;
       p.vx = p.vx * -1 * 0.5;
-      p.vy = p.vy * -1 * 0.5;
+      p.vy = p.vy * 0.5;
     } else if (p.x > canvas.current.width) {
       p.x = canvas.current.width;
       p.vx = p.vx * -1 * 0.5;
-      p.vy = p.vy * -1 * 0.5;
+      p.vy = p.vy * 0.5;
     }
     if (p.y < 0) {
       p.y = 0;
-      p.vx = p.vx * -1 * 0.5;
+      p.vx = p.vx * 0.5;
       p.vy = p.vy * -1 * 0.5;
     } else if (p.y > canvas.current.height) {
       p.y = canvas.current.height;
-      p.vx = p.vx * -1 * 0.5;
+      p.vx = p.vx * 0.5;
       p.vy = p.vy * -1 * 0.5;
     }
     return p;

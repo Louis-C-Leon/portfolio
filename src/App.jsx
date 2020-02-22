@@ -42,6 +42,13 @@ export default () => {
   const about = useRef(null);
   const projects = useRef(null);
   const contact = useRef(null);
+  const body = useRef(document.querySelector('body'));
+  const disableScroll = useCallback(() => {
+    body.current.classList.add('modal-open');
+  }, [body.current]);
+  const enableScroll = useCallback(() => {
+    body.current.classList.remove('modal-open');
+  }, [body.current]);
   const [refs, setRefs] = useState({ home, about, projects, contact });
   const scrollTo = useCallback(
     refName => () => {
@@ -57,7 +64,11 @@ export default () => {
       <div id="content-wrap">
         <Splash reference={home} />
         <About reference={about} />
-        <Projects reference={projects} />
+        <Projects
+          reference={projects}
+          disableScroll={disableScroll}
+          enableScroll={enableScroll}
+        />
       </div>
     </>
   );

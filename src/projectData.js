@@ -1,8 +1,16 @@
-import sc from './assets/images/SoundCrowd-thumbnail.png';
-import sc1 from './assets/images/SoundCrowd-gallery-1.png';
-import sc2 from './assets/images/SoundCrowd-gallery-2.png';
-import sc3 from './assets/images/SoundCrowd-gallery-3.png';
+import sc from './assets/images/SoundCrowd-gallery-1.png';
+import sc1 from './assets/images/SoundCrowd-gallery-2.png';
+import sc2 from './assets/images/SoundCrowd-gallery-3.png';
+import sc3 from './assets/images/SoundCrowd-gallery-4.png';
 
+import pj from './assets/images/MyPhotoJourney-gallery-1.png';
+import pj1 from './assets/images/MyPhotoJourney-gallery-2.png';
+import pj2 from './assets/images/MyPhotoJourney-gallery-3.png';
+import pj3 from './assets/images/MyPhotoJourney-gallery-4.png';
+
+import s from './assets/images/SympleSynth-gallery-1.png';
+import s1 from './assets/images/SympleSynth-gallery-2.png';
+import s2 from './assets/images/SympleSynth-gallery-3.png';
 export default {
   SoundCrowd: {
     techList: [
@@ -16,18 +24,21 @@ export default {
       'Heroku',
     ],
     url: 'http://www.soundcrowd.net/',
-    blurb: `A clone of SoundCloud, developed as personal learning project.`,
-    description: `I designed SoundCrowd to develop my ability to create full-stack, modern Rails web apps from scratch. 
-          The core features of this app include cloud storage of image and audio files, the ability to upload and delete 
-          new music, and the ability to play, browse, and share music with other users. The site uses asynchronous HTTP 
-          requests to RESTful API routes to allow users to create and delete tracks and to update the site accordingly
-          without having to refresh the page. To facilitate a satisfying song playback user experienced, I designed an 
+    blurb: `Full-stack clone of SoundCloud, developed as learning project`,
+    description: [
+      `I built SoundCrowd to learn about designing a full-stack, modern Rails web app from scratch. 
+          The core features include cloud storage of image and audio files, the ability to upload and delete 
+          new music, and the ability to play, browse, and share music with other users. The site uses asynchronous 
+          requests to my RESTful API to render updated data without refreshing the page.`,
+      `To create a satisfying user experienced, I designed an 
           audio player component using React and the Redux cycle. The component persists and plays songs continuously 
-          throughout site navigation, a feature enabled by the apps global Redux state.In addition to the logical RESTful 
-          API routes, I designed custom frontend routes using React Router to display different pages. The discover page,
-          user and song pages, upload page, and new music page all render custom UI components created with React.js.`,
+          during site navigation, a feature enabled by the app's global Redux state.`,
+      `In addition to the backend 
+          API routes, I implemented frontned routing using React Router to display different pages. The discover page,
+          user and song pages, upload page, and new music page all render custom UI components built with React.js.`,
+    ],
     thumbnail: sc,
-    gallery: [sc1, sc2, sc3],
+    gallery: [sc, sc1, sc2, sc3],
   },
   MyPhotoJourney: {
     techList: [
@@ -40,33 +51,55 @@ export default {
       'React.js (with Redux)',
       'Heroku',
     ],
-    url: 'http://www.soundcrowd.net/',
-    blurb: `A clone of SoundCloud, developed as personal learning project.`,
-    description: `I designed SoundCrowd to develop my ability to create full-stack, modern Rails web apps from scratch. 
-          The core features of this app include cloud storage of image and audio files, the ability to upload and delete 
-          new music, and the ability to play, browse, and share music with other users. The site uses asynchronous HTTP 
-          requests to RESTful API routes to allow users to create and delete tracks and to update the site accordingly
-          without having to refresh the page. To facilitate a satisfying song playback user experienced, I designed an 
-          audio player component using React and the Redux cycle. The component persists and plays songs continuously 
-          throughout site navigation, a feature enabled by the apps global Redux state.In addition to the logical RESTful 
-          API routes, I designed custom frontend routes using React Router to display different pages. The discover page,
-          user and song pages, upload page, and new music page all render custom UI components created with React.js.`,
-    thumbnail: sc,
-    gallery: [sc1, sc2, sc3],
+    url: 'https://myphotojourney.herokuapp.com/#/profile',
+    blurb: `Social, travel-focused, photo sharing app built on the MERN stack`,
+    description: [
+      `MyPhotoJourney was built by a four-person team of App Academy students in just a few weeks to practice using the MERN stack.`,
+      `The main feature is the ability to upload a collection of vacation photos to create a shareable "journey", 
+        an interactive visualization of your vacation on a world map.`,
+      `My personal contributions include writing API endpoints, data validation functions, and frontend components that respond dynamically 
+      to user input. I used an open API to get location geodata for rendering photos the map, and designed the location search to find a 
+      user photo's location quickly and efficiently.`,
+    ],
+    thumbnail: pj,
+    gallery: [pj, pj1, pj2, pj3],
   },
-  // MyPhotoJourney: {
-  //   url: 'https://myphotojourney.herokuapp.com/#/',
-  //   description: `This social/travel/photo sharing app was inspired by a D3 project that a team member made based
-  //   on his European backpacking trip. We all felt that this would be a fun idea to expand into a social web app,
-  //   so we formed a small team of App Academy students to expand the project into a application using React, Redux,
-  //   JavaScript, and D3 on the frontend, and MongoDB, Node.js, and Express.js on the backend.
-
-  //   As a member of a four-engineer team, I wrote custom API routes, data validations, and frontend components to
-  //   dynamically and robustly handle user inputs. Our app allows users to upload vacation photos, and then places
-  //   them on a map based on the user-described location. As such, I needed to use a geocoder to make API calls for
-  //   location informatino and then dynamically render that information back to the user. I designed location searches
-  //   specific enough to avoid ambiguous or conflicting locations, but general enough to handle mild input errors, typos,
-  //   or inexact location names. I wrote informative errors and frontend components that update the user about the location
-  //   of each photo, whether the backend has found the location, and other information dynamically as the user types.`,
-  // },
+  SympleSynth: {
+    techList: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'OOP Principles',
+      'WebPack',
+      'WebAudio',
+      'HTML5 Canvas',
+    ],
+    url: 'https://symplesynth.net/',
+    blurb: `JavaScript synthesizer built from scratch using Web Audio`,
+    description: [
+      `I designed SympleSynth to explore my interest in audio synthesis and to practice developing for the Web without a frontend framework. The instrument manages its own state and coordinates complex sound modulations using the JavaScript event loop.`,
+      `I took advantage of OOP principles to make my code more modular and re-usable. Each component of the synthesizer is contained in its own object, with public methods exposed to allow users to control the sound. The different of oscillators, filters, and effects make it possible to create millions of different sounds!`,
+    ],
+    thumbnail: s1,
+    gallery: [s, s1, s2],
+  },
+  'Riva Negotiations': {
+    techList: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'OOP Principles',
+      'WebPack',
+      'WebAudio',
+      'HTML5 Canvas',
+    ],
+    url: 'https://symplesynth.net/',
+    blurb: `JavaScript synthesizer built from scratch using Web Audio`,
+    description: [
+      `I designed SympleSynth to explore my interest in audio synthesis and to practice developing for the Web without a frontend framework. The instrument manages its own state and coordinates complex sound modulations using the JavaScript event loop.`,
+      `I took advantage of OOP principles to make my code more modular and re-usable. Each component of the synthesizer is contained in its own object, with public methods exposed to allow users to control the sound. The different of oscillators, filters, and effects make it possible to create millions of different sounds!`,
+    ],
+    thumbnail: s1,
+    gallery: [s, s1, s2],
+  },
 };

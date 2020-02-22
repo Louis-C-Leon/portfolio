@@ -11,6 +11,10 @@ body {
   scroll-behavior: smooth;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 h1,
 h2 {
   font-family: 'Zilla Slab';
@@ -123,6 +127,7 @@ a {
   border: 3px solid #ada9bb;
   height: 0px;
   width: 150px;
+  margin-bottom: 15px;
 }
 
 .modal-darken {
@@ -136,32 +141,6 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.modal-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  border-radius: 5px;
-  width: 500px;
-  height: 500px;
-  z-index: 6;
-}
-
-.modal-body .carousel {
-  display: flex;
-  flex-direction: row;
-  width: 400px;
-  height: 300px;
-  overflow: hidden;
-}
-
-.modal-body img {
-  cursor: pointer;
-  position: relative;
-  width: 400px;
-  height: 300px;
 }
 
 #bg-animate {
