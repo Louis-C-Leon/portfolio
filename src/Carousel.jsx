@@ -1,3 +1,7 @@
+// Carousel implementation taken from Florian Rappl:
+// https://blog.logrocket.com/building-carousel-component-react-hooks/
+// https://gist.github.com/FlorianRappl/fee731eea985d983fc48d10c648ecb17
+
 import React from 'react';
 import { useCarousel } from './hooks/useCarousel.js';
 import './styles/Carousel.css';

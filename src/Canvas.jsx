@@ -5,7 +5,7 @@ export default function Canvas() {
   //   width: window.innerWidth,
   //   height: window.innerHeight,
   // });
-  const size = useRef({
+  const [size, setSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
   });
@@ -17,23 +17,29 @@ export default function Canvas() {
   const particles = useRef([]);
   const canvas = useRef(null);
   const emitting = useRef(null);
+  const colorIdx = useRef(0);
+  const colors = ['#86D27B', '#1DA385', '#DEF2FF', '#98ACCF'];
   // resize canvas element:
   useEffect(() => {
     function handleResize() {
-      size.current = {
+      setSize({
         width: window.innerWidth,
         height: window.innerHeight,
-      };
+      });
     }
-    // window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [size]);
+    window.addEventListener('resize', handleResize);
+    return function cleanup() {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [setSize]);
+
   // track mouse events:
   useEffect(() => {
     let timeout = null;
+    // On mouse move, track mouse position and start emitting particles until
+    // no mousemove events fire for .5s
     function handleMouseMove(e) {
       e.stopPropagation();
-      console.log('start');
       emitting.current = true;
       mousePos.current = {
         x: e.clientX,
@@ -41,21 +47,23 @@ export default function Canvas() {
       };
       if (timeout) clearTimeout(timeout);
       timeout = setTimeout(() => {
-        console.log('stop');
         emitting.current = false;
       }, 500);
     }
+    // Clear mouse position and stop emitting particles if mouse leaves window
     function handleMouseOut(e) {
       mousePos.current = null;
+      emitting.current = false;
     }
+    // Set random "gravity" (acceleration vector) for particles on mouseclick
     function randomAcceleration() {
       const a = { x: (Math.random() - 0.5) / 2, y: Math.random() - 0.5 };
       accel.current = a;
     }
+
     window.addEventListener('click', randomAcceleration);
     window.addEventListener('mouseout', handleMouseOut);
     window.addEventListener('mousemove', handleMouseMove);
-
     return function cleanup() {
       window.removeEventListener('click', randomAcceleration);
       window.removeEventListener('mousemove', handleMouseMove);
@@ -83,7 +91,7 @@ export default function Canvas() {
     return Math.random() * max - max / 2;
   }
   function drawParticle(p) {
-    ctx.current.fillStyle = '#C7FCEB40';
+    ctx.current.fillStyle = p.color;
     ctx.current.fillRect(p.x, p.y, 4, 4);
   }
   function moveParticle(p) {
@@ -120,6 +128,13 @@ export default function Canvas() {
     return p;
   }
 
+  // Get random color for drawing particle;
+  function randColor() {
+    const color = colors[colorIdx.current];
+    colorIdx.current = (colorIdx.current + 1) % colors.length;
+    return color;
+  }
+
   // renderParticle calls the other animation functions
   function renderParticle(p, v) {
     accelParticle(p, v);
@@ -129,7 +144,7 @@ export default function Canvas() {
   // draw animation frame
   const draw = useCallback(
     t => {
-      ctx.current.fillStyle = '#494368';
+      ctx.current.fillStyle = '#11151C';
       ctx.current.fillRect(0, 0, canvas.current.width, canvas.current.height);
       if (!startTime.current) {
         startTime.current = t;
@@ -145,6 +160,7 @@ export default function Canvas() {
           y: mousePos.current.y + randomVal(10),
           vx: randomVal(10),
           vy: randomVal(10),
+          color: randColor(),
         };
         particles.current.push(newParticle);
       }
@@ -160,7 +176,7 @@ export default function Canvas() {
     }
   }, [ctx]);
 
-  const { width, height } = size.current;
+  const { width, height } = size;
   return (
     <canvas
       width={`${width}px`}

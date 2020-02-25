@@ -1,0 +1,39 @@
+#contact {
+  min-height: 100vh;
+}
+
+#contact,
+.section-body-wrap,
+#contact form {
+  display: flex;
+  flex-direction: column;
+}
+
+#contact p {
+  font-size: 2rem;
+}
+
+#contact .section-body-wrap {
+  flex-grow: 1;
+}
+
+#contact input,
+#contact textarea {
+  height: 30px;
+  border: 1px solid black;
+  transition: border 0.2s;
+  border-radius: 3px;
+  margin: 10px 0;
+  font-size: 1.5rem;
+  outline: none;
+  resize: none;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  border: 1px solid pink;
+}
+
+#contact textarea {
+  height: 150px;
+}

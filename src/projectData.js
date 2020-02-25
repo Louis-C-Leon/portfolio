@@ -11,6 +11,12 @@ import pj3 from './assets/images/MyPhotoJourney-gallery-4.png';
 import s from './assets/images/SympleSynth-gallery-1.png';
 import s1 from './assets/images/SympleSynth-gallery-2.png';
 import s2 from './assets/images/SympleSynth-gallery-3.png';
+
+import rt from './assets/images/Riva-thumbnail.png';
+import r from './assets/images/Riva-gallery-1.png';
+import r1 from './assets/images/Riva-gallery-2.png';
+import r2 from './assets/images/Riva-gallery-3.png';
+
 export default {
   SoundCrowd: {
     techList: [
@@ -54,7 +60,7 @@ export default {
     url: 'https://myphotojourney.herokuapp.com/#/profile',
     blurb: `Social, travel-focused, photo sharing app built on the MERN stack`,
     description: [
-      `MyPhotoJourney was built by a four-person team of App Academy students in just a few weeks to practice using the MERN stack.`,
+      `MyPhotoJourney was built by a small team of App Academy students in just a few weeks to practice using the MERN stack.`,
       `The main feature is the ability to upload a collection of vacation photos to create a shareable "journey", 
         an interactive visualization of your vacation on a world map.`,
       `My personal contributions include writing API endpoints, data validation functions, and frontend components that respond dynamically 
@@ -69,7 +75,7 @@ export default {
       'HTML',
       'CSS',
       'JavaScript',
-      'OOP Principles',
+      'OOP Design',
       'WebPack',
       'WebAudio',
       'HTML5 Canvas',
@@ -77,8 +83,8 @@ export default {
     url: 'https://symplesynth.net/',
     blurb: `JavaScript synthesizer built from scratch using Web Audio`,
     description: [
-      `I designed SympleSynth to explore my interest in audio synthesis and to practice developing for the Web without a frontend framework. The instrument manages its own state and coordinates complex sound modulations using the JavaScript event loop.`,
-      `I took advantage of OOP principles to make my code more modular and re-usable. Each component of the synthesizer is contained in its own object, with public methods exposed to allow users to control the sound. The different of oscillators, filters, and effects make it possible to create millions of different sounds!`,
+      `I designed SympleSynth to explore my interest in audio synthesis and to practice developing for the Web with no frontend frameworks. The instrument manages its own state and coordinates complex sound modulations using the JavaScript event loop.`,
+      `I took advantage of OOP principles to make my code more modular and re-usable. Each component of the synthesizer is contained in its own object, with public methods exposed to allow users to control the sound. The different oscillators, filters, and effects make it possible to create millions of different sounds!`,
     ],
     thumbnail: s1,
     gallery: [s, s1, s2],
@@ -93,13 +99,15 @@ export default {
       'WebAudio',
       'HTML5 Canvas',
     ],
-    url: 'https://symplesynth.net/',
-    blurb: `JavaScript synthesizer built from scratch using Web Audio`,
+    url: 'https://app.rivahq.com/',
+    blurb: `Customer portal for Riva's job negotiation service`,
     description: [
-      `I designed SympleSynth to explore my interest in audio synthesis and to practice developing for the Web without a frontend framework. The instrument manages its own state and coordinates complex sound modulations using the JavaScript event loop.`,
-      `I took advantage of OOP principles to make my code more modular and re-usable. Each component of the synthesizer is contained in its own object, with public methods exposed to allow users to control the sound. The different of oscillators, filters, and effects make it possible to create millions of different sounds!`,
+      `For my first professional project, I worked in a small team of developers to build Riva's customer-facing web app.`,
+      `Riva's negotiation service empowers our customers to earn their worth by putting them in contact with an expert coach
+      and streamlining the negotiating process. I worked to enable our customers and coaching team by implementing 
+      features like secure live chat, flexible payment plans, and integration with external CRM services.`,
     ],
-    thumbnail: s1,
-    gallery: [s, s1, s2],
+    thumbnail: rt,
+    gallery: [r, r1, r2],
   },
 };
