@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Zilla+Slab:600i,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Lato:300i,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700&display=swap');
 
 html,
 body {
@@ -76,39 +76,27 @@ a {
 }
 
 #nav-wrap .nav-link {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 400;
   margin: 50px 0;
   cursor: pointer;
+  color: #1da385;
+  transition: transform 0.2s, color 0.2s;
+}
+#nav-wrap .nav-link:hover,
+#nav-wrap .nav-link.true {
+  color: #dca11d;
+  transform: scale(1.2);
+  text-shadow: 0px 0px 20px #1da385;
 }
 #nav-wrap #nav-home {
-  transition: height 0.2s, margin 0.2s;
+  transition: height 0.5s, margin 0.5s;
 }
 #nav-wrap #nav-home.true {
   height: 0;
   margin: 0;
   padding: 0;
   overflow: hidden;
-}
-#nav-wrap .nav-link.true {
-  color: white;
-}
-
-#profile-wrap {
-  width: 200px;
-  height: 200px;
-  border-radius: 30%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 100px 0;
-  box-shadow: 25px 25px 50px 0 white inset, -25px -25px 50px 0 white inset;
-}
-
-#profile-wrap img {
-  width: 100%;
-  height: 100%;
 }
 
 #content-wrap {
@@ -121,6 +109,7 @@ a {
 #projects,
 #contact {
   width: 100%;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -130,8 +119,18 @@ a {
   padding-left: 150px;
 }
 
+#splash > *,
+#about > *,
+#projects > *,
+#contact > *,
+#nav-wrap {
+  z-index: 2;
+}
+
 #splash {
   min-height: 100vh;
+  background-color: #11151c;
+  background-image: url('../assets/hexagons.svg');
 }
 
 .title-underline {
@@ -142,36 +141,34 @@ a {
 }
 
 .title-row a img {
-  width: 50px;
-  height: 50px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
+  transition: width 0.2s, height 0.2s;
 }
 
 .title-row a {
-  width: fit-content;
-  margin: 0 20px;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: 20px;
+}
+
+.title-row a:hover img {
+  width: 110%;
+  height: 110%;
+  -webkit-filter: drop-shadow(0px 0px 20px #dca11d);
+  filter: drop-shadow(0px 0px 20px #dca11d);
 }
 
 .title-row {
   display: flex;
 }
 
-.modal-darken {
-  position: fixed;
-  z-index: 5;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #33333399;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #bg-animate {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
+  z-index: 1;
 }

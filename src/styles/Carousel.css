@@ -1,51 +1,75 @@
-.carousel {
+#root .carousel {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 300px;
   overflow: hidden;
+  margin: 10px;
 }
 
-.carousel .carousel-content {
+#root .carousel .carousel-content {
   position: relative;
   display: flex;
   flex-direction: row;
   height: 100%;
 }
-.carousel .carousel-content .carousel-item {
+#root .carousel .carousel-content .carousel-item {
   height: 100%;
   display: flex;
   justify-content: center;
 }
 
-.carousel .carousel-content .carousel-item img {
+#root .carousel .carousel-content .carousel-item img {
   max-width: 100%;
   max-height: 100%;
   width: auto;
 }
 
-.carousel-next,
-.carousel-prev {
+#root .carousel-next,
+#root .carousel-prev {
   cursor: pointer;
   position: absolute;
-  z-index: 10;
+  z-index: 7;
   opacity: 0;
   transition: opacity 0.2s;
   height: 100%;
   width: 50%;
-  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-family: 'Zilla Slab';
+  font-size: 5rem;
 }
 
-.carousel-next {
+#root .carousel-next {
   right: 0;
-  background: linear-gradient(to left, #666666, #66666600);
+  justify-content: flex-end;
+
+  background: linear-gradient(to left, #575264, #57526400);
 }
 
-.carousel-prev {
+#root .carousel-prev {
   left: 0;
-  background: linear-gradient(to right, #666666, #66666600);
+  justify-content: flex-start;
+  background: linear-gradient(to right, #575264, #57526400);
 }
 
-.carousel-next:hover,
-.carousel-prev:hover {
-  opacity: 0.3;
+#root .carousel-next:hover,
+#root .carousel-prev:hover {
+  opacity: 1;
+}
+
+#root .carousel-next img,
+#root .carousel-prev img {
+  height: 30%;
+  width: auto;
+  margin: 25px;
+  -webkit-filter: drop-shadow(0px 0px 20px #dca11d);
+  filter: drop-shadow(0px 0px 20px #dca11d);
+}
+
+#root .carousel-next img {
+  transform: rotate(-90deg);
+}
+
+#root .carousel-prev img {
+  transform: rotate(90deg);
 }

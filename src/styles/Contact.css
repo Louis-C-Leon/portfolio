@@ -1,20 +1,32 @@
 #contact {
   min-height: 100vh;
+  background-color: #11151c;
+  background-image: url('../assets/death-star.svg');
 }
 
 #contact,
-.section-body-wrap,
+#contact .section-body-wrap,
 #contact form {
   display: flex;
   flex-direction: column;
 }
 
 #contact p {
-  font-size: 2rem;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+#contact form {
+  margin: 20px 0;
+  width: 100%;
+  padding: 0px 20px;
+  box-sizing: border-box;
 }
 
 #contact .section-body-wrap {
   flex-grow: 1;
+  /* justify-content: center; */
+  align-items: center;
 }
 
 #contact input,
@@ -27,6 +39,7 @@
   font-size: 1.5rem;
   outline: none;
   resize: none;
+  padding: 0 10px;
 }
 
 #contact input:focus,
@@ -35,5 +48,6 @@
 }
 
 #contact textarea {
-  height: 150px;
+  height: 200px;
+  padding: 10px;
 }

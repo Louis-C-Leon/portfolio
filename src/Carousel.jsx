@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { useCarousel } from './hooks/useCarousel.js';
+import arrow from './assets/icons/down-arrow.svg';
 import './styles/Carousel.css';
 
 export default function Carousel({ slides, interval = 7000 }) {
@@ -19,17 +20,12 @@ export default function Carousel({ slides, interval = 7000 }) {
   return (
     length > 0 && (
       <div className="carousel">
-        <div className="carousel-prev" onClick={prev} />
-        <div className="carousel-next" onClick={next} />
-        {/* <ol className="carousel-indicators">
-          {slides.map((_, index) => (
-            <li
-              onClick={() => setActive(index)}
-              key={index}
-              className={`${active === index ? 'active' : ''}`}
-            />
-          ))}
-        </ol> */}
+        <div className="carousel-prev" onClick={prev}>
+          <img src={arrow} alt="arrow" />
+        </div>
+        <div className="carousel-next" onClick={next}>
+          <img src={arrow} alt="arrow" />
+        </div>
         <div className="carousel-content" {...handlers} style={style}>
           <div className="carousel-item" style={itemStyle}>
             <img

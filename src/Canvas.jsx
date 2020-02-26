@@ -61,7 +61,7 @@ export default function Canvas() {
       accel.current = a;
     }
 
-    window.addEventListener('click', randomAcceleration);
+    // window.addEventListener('click', randomAcceleration);
     window.addEventListener('mouseout', handleMouseOut);
     window.addEventListener('mousemove', handleMouseMove);
     return function cleanup() {
@@ -144,8 +144,7 @@ export default function Canvas() {
   // draw animation frame
   const draw = useCallback(
     t => {
-      ctx.current.fillStyle = '#11151C';
-      ctx.current.fillRect(0, 0, canvas.current.width, canvas.current.height);
+      ctx.current.clearRect(0, 0, canvas.current.width, canvas.current.height);
       if (!startTime.current) {
         startTime.current = t;
       }
@@ -174,7 +173,7 @@ export default function Canvas() {
     if (ctx.current) {
       window.requestAnimationFrame(draw);
     }
-  }, [ctx]);
+  }, [ctx, particles]);
 
   const { width, height } = size;
   return (

@@ -3,6 +3,8 @@ import About from './About.jsx';
 import Projects from './Projects.jsx';
 import Canvas from './Canvas.jsx';
 import Contact from './Contact.jsx';
+import ProjectModal from './ProjectModal.jsx';
+import projectDict from './projectData.js';
 import linkedin from './assets/icons/linkedin.svg';
 import github from './assets/icons/github.svg';
 import './styles/reset.css';
@@ -39,22 +41,22 @@ const Nav = ({ scrollTo, current }) => {
         id="nav-home"
         onClick={scrollTo('home')}
         className={`nav-link ${current === 'home'}`}>
-        Home
+        HOME
       </div>
       <div
         onClick={scrollTo('about')}
         className={`nav-link ${current === 'about'}`}>
-        About
+        ABOUT
       </div>
       <div
         onClick={scrollTo('projects')}
         className={`nav-link ${current === 'projects'}`}>
-        Projects
+        PROJECTS
       </div>
       <div
         onClick={scrollTo('contact')}
         className={`nav-link ${current === 'contact'}`}>
-        Contact
+        CONTACT
       </div>
     </div>
   );
@@ -68,10 +70,15 @@ export default () => {
   const body = useRef(document.querySelector('body'));
   const refs = { home, about, projects, contact };
   const [current, setCurrent] = useState('home');
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [navScroll, setNavScroll] = useState(false);
+  const [modalStyle, setModalStyle] = useState('');
 
   useEffect(() => {
+    // if the window is scrolling because it's navigating to a new section,
+    // I want to wait until it's done scrolling.
     const handleScroll = e => {
-      const pos = window.scrollY;
+      const pos = window.scrollY + 50;
       let curr = 'home';
       if (pos >= about.current.offsetTop) {
         curr = 'about';
@@ -84,9 +91,11 @@ export default () => {
       }
       if (curr !== current) setCurrent(curr);
     };
-    window.addEventListener('scroll', handleScroll);
+    if (!navScroll) {
+      window.addEventListener('scroll', handleScroll);
+    }
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [home, about, projects, contact, setCurrent, current]);
+  }, [home, about, projects, contact, setCurrent, current, navScroll]);
 
   const disableScroll = useCallback(() => {
     body.current.classList.add('modal-open');
@@ -96,25 +105,64 @@ export default () => {
     body.current.classList.remove('modal-open');
   }, [body.current]);
 
+  const select = useCallback(
+    name => () => {
+      if (name) {
+        disableScroll();
+        setSelectedProject(name);
+        setModalStyle('open');
+      } else {
+        enableScroll();
+        setModalStyle('close');
+        setTimeout(() => {
+          setModalStyle('');
+          setSelectedProject(null)();
+        }, 300);
+      }
+    },
+    [setSelectedProject, setModalStyle]
+  );
+
+  function scrollWithCallback(offset, callback) {
+    const onScroll = function() {
+      if (window.pageYOffset === offset) {
+        window.removeEventListener('scroll', onScroll);
+        callback();
+      }
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+    window.scrollTo({
+      top: offset,
+      behavior: 'smooth',
+    });
+  }
+
   const scrollTo = useCallback(
     refName => () => {
-      console.log(refs[refName].current.offsetTop);
-      window.scrollTo(0, refs[refName].current.offsetTop);
+      setNavScroll(true);
+      scrollWithCallback(refs[refName].current.offsetTop, () =>
+        setNavScroll(false)
+      );
+      setCurrent(refName);
     },
-    [refs]
+    [refs, setCurrent, scrollWithCallback]
   );
+
   return (
     <>
       <Canvas />
+      <ProjectModal
+        projects={projectDict}
+        select={select}
+        selected={selectedProject}
+        style={modalStyle}
+      />
       <Nav scrollTo={scrollTo} current={current} />
       <div id="content-wrap">
         <Splash reference={home} />
         <About reference={about} />
-        <Projects
-          reference={projects}
-          disableScroll={disableScroll}
-          enableScroll={enableScroll}
-        />
+        <Projects reference={projects} projects={projectDict} select={select} />
         <Contact reference={contact} />
       </div>
     </>

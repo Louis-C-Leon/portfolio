@@ -31,28 +31,27 @@ export default ({ reference }) => {
       <div className="title-underline" />
       <div className="section-body-wrap">
         <p>
-          Thanks for your interest! If you leave a message and your email
-          address, I'll try to get back to you ASAP!
+          Questions? Interested in working together? Leave a message and your
+          email address and I'll get back to you ASAP!
         </p>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={email}
-            onChange={handleChange('email')}
-            placeholder="Your email address"
-          />
-          <input
-            type="text"
-            value={subject}
-            onChange={handleChange('subject')}
-            placeholder="Subject"
-          />
-          <textarea
-            value={body}
-            onChange={handleChange('body')}
-            placeholder="Email body"
-          />
-        </form>
+        <input
+          type="text"
+          value={email}
+          onChange={handleChange('email')}
+          placeholder="Your email address"
+        />
+        <input
+          type="text"
+          value={subject}
+          onChange={handleChange('subject')}
+          placeholder="Subject"
+        />
+        <textarea
+          value={body}
+          onChange={handleChange('body')}
+          placeholder="Email body"
+        />
+        <div className="contact-submit">SEND EMAIL</div>
         <p>
           or, just email me at{' '}
           <a href="mailto:louistheleon@gmail.com">louistheleon@gmail.com</a>

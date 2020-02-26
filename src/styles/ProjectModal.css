@@ -1,0 +1,117 @@
+@keyframes open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes close {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+#root .modal-darken {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #11151cc0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#root .modal-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #575264;
+  border-radius: 12px;
+  box-shadow: 0px 0px 30px #1da38555;
+  width: 60%;
+  min-width: 900px;
+  padding: 25px;
+  z-index: 6;
+}
+
+#root .modal-darken.open {
+  animation: open 0.3s;
+}
+#root .modal-darken.close {
+  animation: close 0.3s;
+}
+
+#root .modal-body .modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  line-height: 1;
+  font-size: 1.75rem;
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+#root .modal-body .modal-close:hover {
+  color: #dca11d;
+  text-shadow: 0px 0px 20px #1da385;
+}
+
+#root .modal-body h1 {
+  font-family: 'Lato';
+  font-size: 4rem;
+}
+
+#root .modal-body p {
+  margin-bottom: 10px;
+}
+
+#root .modal-body .project-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#root .modal-body .project-links a {
+  height: 30px;
+}
+
+#root .modal-body .project-links .live-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1da385;
+  padding: 0px 15px;
+  margin: 10px 20px;
+  border-radius: 3px;
+  font-size: 1.6rem;
+  transition: transform 0.3s;
+}
+
+#root .modal-body .project-links .live-link:hover,
+#root .modal-body .project-links .github-link:hover img {
+  transform: scale(1.2);
+  -webkit-filter: drop-shadow(0px 0px 10px #dca11d);
+  filter: drop-shadow(0px 0px 10px #dca11d);
+}
+
+#root .modal-body .project-links .live-link.disabled {
+  cursor: default;
+  background-color: 'red';
+}
+
+#root .modal-body .project-links .github-link img {
+  height: 30px;
+  width: 30px;
+  transition: transform 0.3s;
+}

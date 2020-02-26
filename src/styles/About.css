@@ -1,11 +1,18 @@
 #about {
   /* position: relative; */
-  /* background-color: #50807250; */
+  background-color: #def2ff;
+  background-image: url('../assets/temple.svg');
+  background-size: 10%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   padding: 20px 0;
+  color: #11151c;
   /* min-height: 100vh; */
+}
+
+#about .title-underline {
+  border: 3px solid #11151c;
 }
 
 #about h2 {
@@ -38,6 +45,11 @@
   align-items: center;
 }
 
+#about .sections .about-me p {
+  width: 80%;
+  padding: 5 auto;
+}
+
 #about .sections .skills-grid {
   display: grid;
   grid-template-columns: 50% auto;
@@ -65,14 +77,17 @@
 #about .sections .skills-grid svg {
   height: 100%;
   width: auto;
-  -webkit-filter: drop-shadow(0px 0px 10px #a06a65);
-  filter: drop-shadow(0px 0px 10px #a06a65);
+  -webkit-filter: drop-shadow(0px 0px 20px #007078);
+  filter: drop-shadow(0px 0px 20px #007078);
 }
 
 #profile-photo {
   width: 200px;
   height: auto;
+  margin: 20px;
   border-radius: 50%;
+  -webkit-filter: drop-shadow(0px 0px 20px #007078);
+  filter: drop-shadow(0px 0px 20px #007078);
 }
 
 #about .blurbs {
@@ -99,7 +114,7 @@
 #about .blurbs p {
   font-size: 1.4rem;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 5px;
 }
 
@@ -128,5 +143,15 @@
   position: absolute;
   font-style: normal;
   font-size: 7rem;
+  letter-spacing: 12px;
   font-weight: 700;
+  color: #1da385;
+  opacity: 0.5;
+}
+
+#about .blurbs .blurb-section p {
+  z-index: 1;
+  font-size: 1.5rem;
+  padding: 0 25px;
+  color: #11151c;
 }

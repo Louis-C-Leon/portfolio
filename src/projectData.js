@@ -19,6 +19,7 @@ import r2 from './assets/images/Riva-gallery-3.png';
 
 export default {
   SoundCrowd: {
+    date: 'March 2019',
     techList: [
       'Ruby on Rails',
       'ActiveStorage',
@@ -29,24 +30,25 @@ export default {
       'PostgreSQL',
       'Heroku',
     ],
-    url: 'http://www.soundcrowd.net/',
+    // url: 'http://www.soundcrowd.net/',
+    github: 'hi',
     blurb: `Full-stack clone of SoundCloud, developed as learning project`,
     description: [
+      `(Note: due to deprecated dependencies and lack of free time to maintain this project, I've taken the full site offline, but feel free to take a look around the public repo!)`,
       `I built SoundCrowd to learn about designing a full-stack, modern Rails web app from scratch. 
           The core features include cloud storage of image and audio files, the ability to upload and delete 
-          new music, and the ability to play, browse, and share music with other users. The site uses asynchronous 
-          requests to my RESTful API to render updated data without refreshing the page.`,
+          music, and the ability to play, browse, and share music with other users. It was a single-page app that used AJAX requests to display updated data without reloading.`,
       `To create a satisfying user experienced, I designed an 
           audio player component using React and the Redux cycle. The component persists and plays songs continuously 
-          during site navigation, a feature enabled by the app's global Redux state.`,
-      `In addition to the backend 
-          API routes, I implemented frontned routing using React Router to display different pages. The discover page,
+          during site navigation, a feature enabled by the app's global Redux state. In addition to the backend 
+          API routes, I implemented frontend routing using React Router to display different pages. The discover page,
           user and song pages, upload page, and new music page all render custom UI components built with React.js.`,
     ],
     thumbnail: sc,
     gallery: [sc, sc1, sc2, sc3],
   },
   MyPhotoJourney: {
+    date: 'April 2019',
     techList: [
       'Node.js',
       'Express.js',
@@ -58,6 +60,7 @@ export default {
       'Heroku',
     ],
     url: 'https://myphotojourney.herokuapp.com/#/profile',
+    github: 'hi',
     blurb: `Social, travel-focused, photo sharing app built on the MERN stack`,
     description: [
       `MyPhotoJourney was built by a small team of App Academy students in just a few weeks to practice using the MERN stack.`,
@@ -71,6 +74,7 @@ export default {
     gallery: [pj, pj1, pj2, pj3],
   },
   SympleSynth: {
+    date: 'May 2019',
     techList: [
       'HTML',
       'CSS',
@@ -81,6 +85,7 @@ export default {
       'HTML5 Canvas',
     ],
     url: 'https://symplesynth.net/',
+    github: 'hi',
     blurb: `JavaScript synthesizer built from scratch using Web Audio`,
     description: [
       `I designed SympleSynth to explore my interest in audio synthesis and to practice developing for the Web with no frontend frameworks. The instrument manages its own state and coordinates complex sound modulations using the JavaScript event loop.`,
@@ -90,6 +95,7 @@ export default {
     gallery: [s, s1, s2],
   },
   'Riva Negotiations': {
+    date: 'In Active Development',
     techList: [
       'HTML',
       'CSS',

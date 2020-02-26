@@ -22,33 +22,20 @@ const Header = () => (
     <div className="blurbs">
       <div className="blurb-section">
         <h2>FRONTEND</h2>
-        {/* <div className="img-wrap">
-          <img src={front} />
-          <p>Frontend</p>
-        </div> */}
         <p>
-          I write fast, performant, and dynamic frontend code with a focus on
-          user experience.
-        </p>
-        <p>
-          I currently use React for UI development, but I'm comfortable working
-          on legacy code, learning new frameworks, or using vanilla
-          HTML/CSS/JavaScript.
+          I write performant, dynamic frontend code with a focus on user
+          experience. I currently use React for UI development, but I'm
+          comfortable working on legacy code, learning new frameworks, or using
+          vanilla HTML/CSS/JavaScript.
         </p>
       </div>
       <div className="blurb-section">
         <h2>BACKEND</h2>
-        {/* <div className="img-wrap">
-          <img src={back} />
-          <p>Backend</p>
-        </div> */}
         <p>
-          I've worked with many server-side technologies and design patterns,
-          from MVC frameworks to serverless microservice architecture.
-        </p>
-        <p>
-          I currently use Serverless.js with AWS to design and develop fast,
-          scalable applications.
+          I've worked with many different server-side technologies and design
+          patterns, from MVC frameworks to serverless microservice architecture.
+          I currently use Serverless.js with AWS among other tools to design and
+          develop fast, scalable applications.
         </p>
       </div>
     </div>
@@ -95,16 +82,17 @@ const Bio = () => (
     <img id="profile-photo" src={profile} alt="Louis Leon" />
     <p>
       I'm Louis, a bay area web developer. After studying philosophy, logic, and
-      mathematics at the University of Texas, I branched out onto a new career
-      path to pursue software engineering. Since graduating in 2018, I've gotten
-      hooked on coding and building applications. I love optimizing and refining
-      code and learning new ways to develop for the Web platform!
+      mathematics at the University of Texas, I branched out onto a new path to
+      pursue software engineering. After graduating in 2018, I got hooked on
+      coding and building applications, and completed the App Academy coding
+      bootcamp in 2019. I love optimizing and refining code and learning new
+      technologies and skills!
     </p>
     <p>
-      As one of the original developers at Riva Negotiations, I've been working
+      As one of the first developers at Riva Negotiations, I've been working
       alongside a small team to build our scalable, customer-facing web app from
       the ground up. I'm always switching between frontend and backend work, and
-      working to maintain the health of our codebase.
+      working to maintain a healthy codebase.
     </p>
     <p>
       I'm curious, analytical, and driven to refine my coding skills and
