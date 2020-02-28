@@ -5,8 +5,7 @@
 }
 
 #contact,
-#contact .section-body-wrap,
-#contact form {
+#contact .section-body-wrap {
   display: flex;
   flex-direction: column;
 }
@@ -14,6 +13,7 @@
 #contact p {
   font-size: 1.75rem;
   text-align: center;
+  margin: 10px 0;
 }
 
 #contact form {
@@ -24,6 +24,7 @@
 }
 
 #contact .section-body-wrap {
+  padding: 20px;
   flex-grow: 1;
   /* justify-content: center; */
   align-items: center;
@@ -31,20 +32,44 @@
 
 #contact input,
 #contact textarea {
+  background-color: #3b3f47;
+  color: #def2ff;
+  outline: none;
+  border: none;
   height: 30px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   transition: border 0.2s;
-  border-radius: 3px;
+  /* border-radius: 3px; */
   margin: 10px 0;
   font-size: 1.5rem;
   outline: none;
-  resize: none;
   padding: 0 10px;
+  width: 75%;
+  transition: box-shadow 0.2s;
+}
+
+#contact .contact-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1da385;
+  padding: 5px 20px;
+  margin: 15px 20px;
+  border-radius: 3px;
+  font-size: 2rem;
+  font-weight: 700;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+#contact .contact-submit:hover {
+  transform: scale(1.2);
+  box-shadow: 0px 0px 10px #dca11d;
 }
 
 #contact input:focus,
 #contact textarea:focus {
-  border: 1px solid pink;
+  box-shadow: 0px 0px 10px #1da385;
 }
 
 #contact textarea {

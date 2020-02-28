@@ -36,7 +36,6 @@ function carouselReducer(state, action) {
         desired: action.desired,
       };
     case 'next':
-      console.log('NEXT');
       return {
         ...state,
         desired: next(action.length, state.active),
@@ -105,7 +104,6 @@ export function useCarousel(length, interval) {
 
   useEffect(() => {
     const id = setTimeout(() => dispatch({ type: 'done' }), transitionTime);
-    console.log(state.desired);
     return () => clearTimeout(id);
   }, [state.desired]);
 

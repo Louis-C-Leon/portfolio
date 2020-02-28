@@ -1,14 +1,17 @@
 import React, { useRef, useCallback, useState, useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import About from './About.jsx';
 import Projects from './Projects.jsx';
 import Canvas from './Canvas.jsx';
 import Contact from './Contact.jsx';
 import ProjectModal from './ProjectModal.jsx';
+import NavTop from './NavTop.jsx';
 import projectDict from './projectData.js';
 import linkedin from './assets/icons/linkedin.svg';
 import github from './assets/icons/github.svg';
 import './styles/reset.css';
 import './styles/App.css';
+import './styles/AppMobile.css';
 
 const Splash = ({ reference }) => {
   return (
@@ -67,6 +70,7 @@ export default () => {
   const about = useRef(null);
   const projects = useRef(null);
   const contact = useRef(null);
+  const content = useRef(null);
   const body = useRef(document.querySelector('body'));
   const refs = { home, about, projects, contact };
   const [current, setCurrent] = useState('home');
@@ -74,10 +78,19 @@ export default () => {
   const [navScroll, setNavScroll] = useState(false);
   const [modalStyle, setModalStyle] = useState('');
 
+  const hasHover = useMediaQuery({ query: '(any-hover: hover)' });
+  const hamburger = useMediaQuery({ query: '(max-width: 475px)' });
+
   useEffect(() => {
     // if the window is scrolling because it's navigating to a new section,
     // I want to wait until it's done scrolling.
+    const modalOpen =
+      body && body.current
+        ? body.current.classList.contains('modal-open')
+        : false;
+    console.log(modalOpen);
     const handleScroll = e => {
+      if (body.current.classList.contains('modal-open')) return;
       const pos = window.scrollY + 50;
       let curr = 'home';
       if (pos >= about.current.offsetTop) {
@@ -91,19 +104,38 @@ export default () => {
       }
       if (curr !== current) setCurrent(curr);
     };
-    if (!navScroll) {
+    if (!navScroll && !modalOpen) {
       window.addEventListener('scroll', handleScroll);
     }
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [home, about, projects, contact, setCurrent, current, navScroll]);
+  }, [
+    home,
+    about,
+    projects,
+    contact,
+    setCurrent,
+    current,
+    navScroll,
+    body.current,
+  ]);
 
   const disableScroll = useCallback(() => {
+    const top = `${window.scrollY}`;
     body.current.classList.add('modal-open');
-  }, [body.current]);
+    content.current.setAttribute('style', `transform: translateY(-${top}px)`);
+  }, [body.current, content.current]);
 
   const enableScroll = useCallback(() => {
+    const style = content.current.style.transform;
+    const digitEx = /\d{1,}/;
+    const scroll = Number(style.match(digitEx)[0]);
     body.current.classList.remove('modal-open');
-  }, [body.current]);
+    content.current.setAttribute('style', `transform: none`);
+    window.scrollTo({
+      top: scroll,
+      behavior: 'auto',
+    });
+  }, [body.current, content.current]);
 
   const select = useCallback(
     name => () => {
@@ -151,15 +183,25 @@ export default () => {
 
   return (
     <>
-      <Canvas />
+      {hasHover ? <Canvas /> : null}
       <ProjectModal
         projects={projectDict}
         select={select}
         selected={selectedProject}
         style={modalStyle}
       />
-      <Nav scrollTo={scrollTo} current={current} />
-      <div id="content-wrap">
+      {hamburger ? (
+        <NavTop
+          scrollTo={scrollTo}
+          current={current}
+          enableScroll={enableScroll}
+          disableScroll={disableScroll}
+        />
+      ) : (
+        <Nav scrollTo={scrollTo} current={current} />
+      )}
+      {/* <Nav scrollTo={scrollTo} current={current} /> */}
+      <div ref={content} id="content-wrap">
         <Splash reference={home} />
         <About reference={about} />
         <Projects reference={projects} projects={projectDict} select={select} />

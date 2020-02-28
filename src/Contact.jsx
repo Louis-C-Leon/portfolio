@@ -31,8 +31,7 @@ export default ({ reference }) => {
       <div className="title-underline" />
       <div className="section-body-wrap">
         <p>
-          Questions? Interested in working together? Leave a message and your
-          email address and I'll get back to you ASAP!
+          Leave a message and your email address and I'll get back to you ASAP!
         </p>
         <input
           type="text"
@@ -51,9 +50,9 @@ export default ({ reference }) => {
           onChange={handleChange('body')}
           placeholder="Email body"
         />
-        <div className="contact-submit">SEND EMAIL</div>
+        <div className="contact-submit">Send</div>
         <p>
-          or, just email me at{' '}
+          or, just contact me at{' '}
           <a href="mailto:louistheleon@gmail.com">louistheleon@gmail.com</a>
         </p>
       </div>

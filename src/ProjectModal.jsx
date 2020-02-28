@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Carousel from './Carousel.jsx';
 import gIcon from './assets/icons/github.svg';
+import xIcon from './assets/icons/close.svg';
 import './styles/ProjectModal.css';
 
 export default function ProjectModal({ projects, select, selected, style }) {
@@ -11,9 +12,7 @@ export default function ProjectModal({ projects, select, selected, style }) {
   return (
     <div className={`modal-darken ${style}`} onClick={select(null)}>
       <div className={`modal-body`} onClick={e => e.stopPropagation()}>
-        <div className="modal-close" onClick={select(null)}>
-          X
-        </div>
+        <img src={xIcon} className="modal-close" onClick={select(null)} />
         <Carousel slides={gallery} />
         {description.map(paragraph => (
           <p>{paragraph}</p>

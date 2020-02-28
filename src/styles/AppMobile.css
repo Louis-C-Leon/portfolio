@@ -1,0 +1,142 @@
+@media only screen and (max-width: 1080px) {
+  #splash,
+  #about,
+  #projects,
+  #contact {
+    padding: 65px 0;
+    padding-left: 0;
+  }
+  #nav-wrap {
+    padding: 0;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: fit-content;
+    background-color: #11151c;
+    z-index: 3;
+    box-shadow: 0px 0px 5px #def2ff;
+    /* justify-content: space-evenly; */
+  }
+  #nav-wrap .nav-link {
+    height: 65px;
+    display: flex;
+    align-items: center;
+    /* flex-direction: column; */
+    margin: 0px 7%;
+    font-size: 1.4rem;
+  }
+  #root .modal-darken .modal-body {
+    width: 80%;
+    min-width: 700px;
+    padding: 15px;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  #about .blurbs {
+    flex-direction: column;
+    align-items: center;
+  }
+  #projects .project-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #about .sections {
+    flex-direction: column;
+    align-items: center;
+  }
+  #about .sections .about-me,
+  #about .sections .skills-grid {
+    width: 90%;
+  }
+  #about .blurbs .blurb-section {
+    width: 80%;
+  }
+  #projects .project-tile {
+    margin: 30px 0;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #root .modal-darken {
+    justify-content: flex-start;
+  }
+  #root .modal-darken .modal-body {
+    position: fixed;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    top: 0;
+    height: fit-content;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    justify-content: space-evenly;
+    padding: 30px;
+    overflow-y: scroll;
+    background-color: #11151c;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #root .carousel {
+    height: 200px;
+    margin: 15px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  #about .blurbs .blurb-section h2 {
+    letter-spacing: 6px;
+    font-size: 5rem;
+  }
+  #root .carousel {
+    height: 150px;
+  }
+  #root .modal-darken .modal-body {
+    justify-content: space-evenly;
+  }
+  #root .modal-darken .modal-body p {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  #nav-wrap {
+    height: 50px;
+  }
+  #about .sections .skills-grid .icon-wrap {
+    height: 50px;
+  }
+  #projects .project-tile {
+    height: 200px;
+    width: 320px;
+  }
+  #contact p {
+    font-size: 1.5rem;
+  }
+  #about .sections .about-me p,
+  #about .blurbs .blurb-section {
+    width: 95%;
+  }
+}
+
+@media (hover: none) {
+  * {
+    transition: none;
+  }
+  *:hover {
+    /* pointer-events: none !important; */
+  }
+}

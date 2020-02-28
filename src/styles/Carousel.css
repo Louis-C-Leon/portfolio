@@ -42,14 +42,15 @@
 #root .carousel-next {
   right: 0;
   justify-content: flex-end;
-
-  background: linear-gradient(to left, #575264, #57526400);
+  padding-right: 10%;
+  background: linear-gradient(to left, #11151c, #11151c00);
 }
 
 #root .carousel-prev {
   left: 0;
   justify-content: flex-start;
-  background: linear-gradient(to right, #575264, #57526400);
+  padding-left: 10%;
+  background: linear-gradient(to right, #11151c, #11151c00);
 }
 
 #root .carousel-next:hover,

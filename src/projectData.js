@@ -39,10 +39,9 @@ export default {
           The core features include cloud storage of image and audio files, the ability to upload and delete 
           music, and the ability to play, browse, and share music with other users. It was a single-page app that used AJAX requests to display updated data without reloading.`,
       `To create a satisfying user experienced, I designed an 
-          audio player component using React and the Redux cycle. The component persists and plays songs continuously 
-          during site navigation, a feature enabled by the app's global Redux state. In addition to the backend 
-          API routes, I implemented frontend routing using React Router to display different pages. The discover page,
-          user and song pages, upload page, and new music page all render custom UI components built with React.js.`,
+          audio player component using React and the Redux cycle, which persists and plays songs continuously 
+          during site navigation. In addition to the backend 
+          API routes, I implemented frontend routing using React Router to display different pages and custom UI components.`,
     ],
     thumbnail: sc,
     gallery: [sc, sc1, sc2, sc3],
@@ -63,8 +62,7 @@ export default {
     github: 'hi',
     blurb: `Social, travel-focused, photo sharing app built on the MERN stack`,
     description: [
-      `MyPhotoJourney was built by a small team of App Academy students in just a few weeks to practice using the MERN stack.`,
-      `The main feature is the ability to upload a collection of vacation photos to create a shareable "journey", 
+      `MyPhotoJourney was built by a small team of App Academy students in just a few weeks to practice using the MERN stack. The main feature is the ability to upload a collection of vacation photos to create a shareable "journey", 
         an interactive visualization of your vacation on a world map.`,
       `My personal contributions include writing API endpoints, data validation functions, and frontend components that respond dynamically 
       to user input. I used an open API to get location geodata for rendering photos the map, and designed the location search to find a 

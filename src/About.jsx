@@ -1,7 +1,5 @@
 import React from 'react';
 import profile from './assets/images/profile.jpg';
-import front from './assets/icons/data.svg';
-import back from './assets/icons/computer.svg';
 import aws from './assets/icons/aws.svg';
 import rails from './assets/icons/rails.svg';
 import react from './assets/icons/react.svg';
@@ -13,6 +11,7 @@ import htmlCssJs from './assets/icons/html-css-js.png';
 import rest from './assets/icons/rest.svg';
 import postgres from './assets/icons/postgres.svg';
 import dynamo from './assets/icons/dynamo.svg';
+import resume from './assets/louis-leon-resume.pdf';
 import './styles/About.css';
 
 const Header = () => (
@@ -39,6 +38,13 @@ const Header = () => (
         </p>
       </div>
     </div>
+    <a
+      rel="noopener noreferrer"
+      target="_blank"
+      href={resume}
+      className="resume-link">
+      Resume
+    </a>
   </div>
 );
 
