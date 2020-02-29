@@ -11,7 +11,7 @@ import htmlCssJs from '../assets/icons/html-css-js.png';
 import rest from '../assets/icons/rest.svg';
 import postgres from '../assets/icons/postgres.svg';
 import dynamo from '../assets/icons/dynamo.svg';
-import resume from '../assets/louis-leon-resume.pdf';
+import resume from '../assets/resume-2:29.pdf';
 import '../styles/About.css';
 
 const Header = () => (
