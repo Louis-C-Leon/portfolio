@@ -54,6 +54,7 @@ export default ({ reference }) => {
     },
     [setEmailError, setSubjectError, setMessageError]
   );
+
   const sendEmail = useCallback(() => {
     const valid = validateFields(email, subject, message);
     if (!valid) return;
