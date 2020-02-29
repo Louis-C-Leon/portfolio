@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import './styles/Contact.css';
+import '../styles/Contact.css';
 
 export default ({ reference }) => {
   const [email, setEmail] = useState('');

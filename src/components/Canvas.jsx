@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 
 export default function Canvas() {
-  // const [size, setSize] = useState({
-  //   width: window.innerWidth,
-  //   height: window.innerHeight,
-  // });
   const [size, setSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,

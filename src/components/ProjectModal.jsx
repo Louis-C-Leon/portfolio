@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Carousel from './Carousel.jsx';
-import gIcon from './assets/icons/github.svg';
-import xIcon from './assets/icons/close.svg';
-import './styles/ProjectModal.css';
+import gIcon from '../assets/icons/github.svg';
+import xIcon from '../assets/icons/close.svg';
+import '../styles/ProjectModal.css';
 
 export default function ProjectModal({ projects, select, selected, style }) {
   if (!selected) return null;
@@ -15,7 +15,7 @@ export default function ProjectModal({ projects, select, selected, style }) {
         <img src={xIcon} className="modal-close" onClick={select(null)} />
         <Carousel slides={gallery} />
         {description.map(paragraph => (
-          <p>{paragraph}</p>
+          <p dangerouslySetInnerHTML={{ __html: paragraph }} />
         ))}
         <div className="project-links">
           {github ? (
@@ -23,9 +23,11 @@ export default function ProjectModal({ projects, select, selected, style }) {
               <img src={gIcon} alt="github-icon" />
             </a>
           ) : null}
-          <a className={`bold-link ${url ? '' : 'disabled'}`} href={url}>
-            View Live Site
-          </a>
+          {url ? (
+            <a className={`bold-link ${url ? '' : 'disabled'}`} href={url}>
+              View Live Site
+            </a>
+          ) : null}
         </div>
       </div>
     </div>

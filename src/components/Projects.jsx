@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/Projects.css';
+import '../styles/Projects.css';
 
 const ProjectTile = ({ title, project, select }) => {
   const inline = { backgroundImage: `url(${project.thumbnail})` };

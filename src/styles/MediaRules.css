@@ -160,6 +160,12 @@
   #document #document-body #root * {
     transition: none;
     animation: none !important;
-    /* background-image: none !important; */
+  }
+  .project-tile .darken {
+    opacity: 1;
+  }
+  .project-tile .overlay {
+    height: 100%;
+    max-height: 100%;
   }
 }

@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from 'react';
-import './styles/NavTop.css';
-import openIcon from './assets/icons/open-menu.svg';
-import closeIcon from './assets/icons/close.svg';
+import '../styles/NavMobile.css';
+import openIcon from '../assets/icons/open-menu.svg';
+import closeIcon from '../assets/icons/close.svg';
 
-export default function NavTop({
+export default function NavMobile({
   scrollTo,
   current,
   disableScroll,

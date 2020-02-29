@@ -1,18 +1,18 @@
 import React from 'react';
-import profile from './assets/images/profile.jpg';
-import aws from './assets/icons/aws.svg';
-import rails from './assets/icons/rails.svg';
-import react from './assets/icons/react.svg';
-import redux from './assets/icons/redux.svg';
-import graphql from './assets/icons/graphql.svg';
-import python from './assets/icons/python.svg';
-import nodejs from './assets/icons/nodejs.svg';
-import htmlCssJs from './assets/icons/html-css-js.png';
-import rest from './assets/icons/rest.svg';
-import postgres from './assets/icons/postgres.svg';
-import dynamo from './assets/icons/dynamo.svg';
-import resume from './assets/louis-leon-resume.pdf';
-import './styles/About.css';
+import profile from '../assets/images/profile.jpg';
+import aws from '../assets/icons/aws.svg';
+import rails from '../assets/icons/rails.svg';
+import react from '../assets/icons/react.svg';
+import redux from '../assets/icons/redux.svg';
+import graphql from '../assets/icons/graphql.svg';
+import python from '../assets/icons/python.svg';
+import nodejs from '../assets/icons/nodejs.svg';
+import htmlCssJs from '../assets/icons/html-css-js.png';
+import rest from '../assets/icons/rest.svg';
+import postgres from '../assets/icons/postgres.svg';
+import dynamo from '../assets/icons/dynamo.svg';
+import resume from '../assets/louis-leon-resume.pdf';
+import '../styles/About.css';
 
 const Header = () => (
   <div className="about-header">

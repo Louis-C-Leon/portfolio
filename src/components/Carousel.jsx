@@ -4,9 +4,9 @@
 
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { useCarousel } from './hooks/useCarousel.js';
-import arrow from './assets/icons/down-arrow.svg';
-import './styles/Carousel.css';
+import { useCarousel } from '../hooks/useCarousel.js';
+import arrow from '../assets/icons/down-arrow.svg';
+import '../styles/Carousel.css';
 
 export default function Carousel({ slides, interval = 7000 }) {
   const length = slides.length;

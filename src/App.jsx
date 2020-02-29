@@ -1,71 +1,19 @@
 import React, { useRef, useCallback, useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import About from './About.jsx';
-import Projects from './Projects.jsx';
-import Canvas from './Canvas.jsx';
-import Contact from './Contact.jsx';
-import ProjectModal from './ProjectModal.jsx';
-import NavTop from './NavTop.jsx';
+import NavDesktop from './components/NavDesktop.jsx';
+import NavMobile from './components/NavMobile.jsx';
+import Canvas from './components/Canvas.jsx';
+import Splash from './components/Splash.jsx';
+import About from './components/About.jsx';
+import ProjectModal from './components/ProjectModal.jsx';
 import projectDict from './projectData.js';
-import linkedin from './assets/icons/linkedin.svg';
-import github from './assets/icons/github.svg';
+import Projects from './components/Projects.jsx';
+import Contact from './components/Contact.jsx';
 import './styles/reset.css';
 import './styles/App.css';
-import './styles/AppMobile.css';
+import './styles/MediaRules.css';
 
-const Splash = ({ reference }) => {
-  return (
-    <div ref={reference} id="splash">
-      <div className="title-row">
-        <h1>
-          Hi, I'm <strong>Louis Leon</strong>
-        </h1>
-      </div>
-      <div className="title-underline" />
-      <div className="title-row">
-        <h2>Full-Stack Web Developer</h2>
-      </div>
-      <div className="title-row">
-        <a href="https://www.linkedin.com/in/louis-c-leon/">
-          <img src={linkedin} />
-        </a>
-        <a href="https://github.com/louis-c-leon">
-          <img src={github} />
-        </a>
-      </div>
-    </div>
-  );
-};
-
-const Nav = ({ scrollTo, current }) => {
-  return (
-    <div id="nav-wrap">
-      <div
-        id="nav-home"
-        onClick={scrollTo('home')}
-        className={`nav-link ${current === 'home'}`}>
-        HOME
-      </div>
-      <div
-        onClick={scrollTo('about')}
-        className={`nav-link ${current === 'about'}`}>
-        ABOUT
-      </div>
-      <div
-        onClick={scrollTo('projects')}
-        className={`nav-link ${current === 'projects'}`}>
-        PROJECTS
-      </div>
-      <div
-        onClick={scrollTo('contact')}
-        className={`nav-link ${current === 'contact'}`}>
-        CONTACT
-      </div>
-    </div>
-  );
-};
-
-export default () => {
+export default function App() {
   const home = useRef(null);
   const about = useRef(null);
   const projects = useRef(null);
@@ -191,16 +139,15 @@ export default () => {
         style={modalStyle}
       />
       {hamburger ? (
-        <NavTop
+        <NavMobile
           scrollTo={scrollTo}
           current={current}
           enableScroll={enableScroll}
           disableScroll={disableScroll}
         />
       ) : (
-        <Nav scrollTo={scrollTo} current={current} />
+        <NavDesktop scrollTo={scrollTo} current={current} />
       )}
-      {/* <Nav scrollTo={scrollTo} current={current} /> */}
       <div ref={content} id="content-wrap">
         <Splash reference={home} />
         <About reference={about} />
@@ -209,4 +156,4 @@ export default () => {
       </div>
     </>
   );
-};
+}
