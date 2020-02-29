@@ -20,7 +20,7 @@ export default function App() {
   const contact = useRef(null);
   const content = useRef(null);
   const body = useRef(document.querySelector('body'));
-  const refs = { home, about, projects, contact };
+  const refs = { home, about, projects, contact, body };
   const [current, setCurrent] = useState('home');
   const [selectedProject, setSelectedProject] = useState(null);
   const [navScroll, setNavScroll] = useState(false);
