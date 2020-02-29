@@ -50,7 +50,7 @@ export default ({ reference }) => {
           onChange={handleChange('body')}
           placeholder="Email body"
         />
-        <div className="contact-submit">Send</div>
+        <a className="bold-link">SEND</a>
         <p>
           or, just contact me at{' '}
           <a href="mailto:louistheleon@gmail.com">louistheleon@gmail.com</a>

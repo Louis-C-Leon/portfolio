@@ -61,7 +61,7 @@ export default function Canvas() {
       accel.current = a;
     }
 
-    // window.addEventListener('click', randomAcceleration);
+    window.addEventListener('click', randomAcceleration);
     window.addEventListener('mouseout', handleMouseOut);
     window.addEventListener('mousemove', handleMouseMove);
     return function cleanup() {

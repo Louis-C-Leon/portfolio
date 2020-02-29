@@ -62,12 +62,6 @@
   right: 15px;
   line-height: 1;
   cursor: pointer;
-  transition: color 0.2s, transform 0.2s;
-}
-
-#root .modal-body .modal-close:hover {
-  transform: scale(1.2);
-  text-shadow: 0px 0px 20px #1da385;
 }
 
 #root .modal-body h1 {
@@ -87,26 +81,20 @@
 
 #root .modal-body .project-links a {
   height: 30px;
-}
-
-#root .modal-body .project-links .live-link {
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: #1da385;
-  color: inherit;
-  padding: 0px 15px;
-  margin: 10px 20px;
-  border-radius: 3px;
-  font-size: 1.6rem;
-  transition: transform 0.3s;
 }
 
-#root .modal-body .project-links .live-link:hover,
+#root .modal-body .project-links .bold-link {
+  padding: 0 30px;
+  font-size: 2rem;
+}
+
+#root .modal-body .project-links .bold-link:hover,
 #root .modal-body .project-links .github-link:hover img {
-  transform: scale(1.2);
-  -webkit-filter: drop-shadow(0px 0px 10px #dca11d);
-  filter: drop-shadow(0px 0px 10px #dca11d);
+  color: #1da385;
+  -webkit-filter: drop-shadow(0px 0px 20px #def2ff);
+  filter: drop-shadow(0px 0px 20px #def2ff);
 }
 
 #root .modal-body .project-links .live-link.disabled {
@@ -117,5 +105,4 @@
 #root .modal-body .project-links .github-link img {
   height: 30px;
   width: 30px;
-  transition: transform 0.3s;
 }

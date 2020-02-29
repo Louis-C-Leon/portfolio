@@ -18,6 +18,13 @@ const Header = () => (
   <div className="about-header">
     <h1>About Me</h1>
     <div className="title-underline" />
+    <a
+      rel="noopener noreferrer"
+      target="_blank"
+      href={resume}
+      className="bold-link">
+      Resume
+    </a>
     <div className="blurbs">
       <div className="blurb-section">
         <h2>FRONTEND</h2>
@@ -38,13 +45,6 @@ const Header = () => (
         </p>
       </div>
     </div>
-    <a
-      rel="noopener noreferrer"
-      target="_blank"
-      href={resume}
-      className="resume-link">
-      Resume
-    </a>
   </div>
 );
 

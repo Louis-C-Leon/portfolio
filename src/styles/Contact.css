@@ -48,23 +48,9 @@
   transition: box-shadow 0.2s;
 }
 
-#contact .contact-submit {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1da385;
-  padding: 5px 20px;
-  margin: 15px 20px;
-  border-radius: 3px;
-  font-size: 2rem;
-  font-weight: 700;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-}
-
-#contact .contact-submit:hover {
-  transform: scale(1.2);
-  box-shadow: 0px 0px 10px #dca11d;
+#contact .bold-link {
+  font-size: 4rem;
+  letter-spacing: 3px;
 }
 
 #contact input:focus,

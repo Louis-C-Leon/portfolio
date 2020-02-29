@@ -23,7 +23,7 @@ export default function ProjectModal({ projects, select, selected, style }) {
               <img src={gIcon} alt="github-icon" />
             </a>
           ) : null}
-          <a className={`live-link ${url ? '' : 'disabled'}`} href={url}>
+          <a className={`bold-link ${url ? '' : 'disabled'}`} href={url}>
             View Live Site
           </a>
         </div>

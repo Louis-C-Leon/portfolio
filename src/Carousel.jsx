@@ -3,6 +3,7 @@
 // https://gist.github.com/FlorianRappl/fee731eea985d983fc48d10c648ecb17
 
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { useCarousel } from './hooks/useCarousel.js';
 import arrow from './assets/icons/down-arrow.svg';
 import './styles/Carousel.css';
@@ -13,6 +14,7 @@ export default function Carousel({ slides, interval = 7000 }) {
     length,
     interval
   );
+  const hasHover = useMediaQuery({ query: '(any-hover: hover)' });
   // debugger;
   const { width: fullWidth } = style;
   const itemWidth = String(10000 / Number(fullWidth.slice(0, -1))) + '%';
@@ -20,12 +22,16 @@ export default function Carousel({ slides, interval = 7000 }) {
   return (
     length > 0 && (
       <div className="carousel">
-        <div className="carousel-prev" onClick={prev}>
-          <img src={arrow} alt="arrow" />
-        </div>
-        <div className="carousel-next" onClick={next}>
-          <img src={arrow} alt="arrow" />
-        </div>
+        {hasHover ? (
+          <>
+            <div className="carousel-prev" onClick={prev}>
+              <img src={arrow} alt="arrow" />
+            </div>
+            <div className="carousel-next" onClick={next}>
+              <img src={arrow} alt="arrow" />
+            </div>
+          </>
+        ) : null}
         <div className="carousel-content" {...handlers} style={style}>
           <div className="carousel-item" style={itemStyle}>
             <img

@@ -1,8 +1,8 @@
 #about {
   /* position: relative; */
   background-color: #def2ff;
-  background-image: url('../assets/temple.svg');
-  background-size: 10%;
+  background-image: url('../assets/wiggle.svg');
+  background-size: 8%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -11,26 +11,8 @@
   /* min-height: 100vh; */
 }
 
-#about .resume-link {
-  font-style: inherit;
-  color: #def2ff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1da385;
-  padding: 7px 40px;
-  letter-spacing: 3px;
-  margin: 15px 20px;
-  border-radius: 3px;
-  font-size: 2rem;
-  font-weight: 700;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-}
-
-#about .resume-link:hover {
-  transform: scale(1.2);
-  box-shadow: 0px 0px 10px #dca11d;
+#about a {
+  font-size: 3rem;
 }
 
 #about .title-underline {
@@ -167,7 +149,7 @@
   font-size: 7rem;
   letter-spacing: 12px;
   font-weight: 700;
-  color: #1da385;
+  color: #98accf;
   opacity: 0.5;
 }
 

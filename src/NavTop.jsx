@@ -19,6 +19,14 @@ export default function NavTop({
     enableScroll();
   }, [setOpen, enableScroll]);
 
+  const goTo = useCallback(
+    section => () => {
+      closeMenu();
+      setTimeout(scrollTo(section), 50);
+    },
+    [scrollTo]
+  );
+
   return (
     <>
       <div id="nav-wrap" className="nav-mobile">
@@ -28,22 +36,22 @@ export default function NavTop({
         <img src={closeIcon} alt="open menu" onClick={closeMenu} />
         <div
           id="nav-home"
-          onClick={scrollTo('home')}
+          onClick={goTo('home')}
           className={`nav-link ${current === 'home'}`}>
           HOME
         </div>
         <div
-          onClick={scrollTo('about')}
+          onClick={goTo('about')}
           className={`nav-link ${current === 'about'}`}>
           ABOUT
         </div>
         <div
-          onClick={scrollTo('projects')}
+          onClick={goTo('projects')}
           className={`nav-link ${current === 'projects'}`}>
           PROJECTS
         </div>
         <div
-          onClick={scrollTo('contact')}
+          onClick={goTo('contact')}
           className={`nav-link ${current === 'contact'}`}>
           CONTACT
         </div>

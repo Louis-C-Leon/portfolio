@@ -80,6 +80,9 @@
     overflow-y: scroll;
     background-color: #11151c;
   }
+  #root #profile-photo {
+    width: 150px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -96,25 +99,31 @@
   h2 {
     font-size: 3rem;
   }
-  #about .blurbs .blurb-section h2 {
-    letter-spacing: 6px;
-    font-size: 5rem;
+  #about .blurbs {
+    display: none;
   }
   #root .carousel {
     height: 150px;
   }
   #root .modal-darken .modal-body {
+    padding: 10px;
     justify-content: space-evenly;
   }
   #root .modal-darken .modal-body p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin: 0;
+  }
+}
+@media only screen and (max-height: 700px) {
+  #root .carousel {
+    height: 150px;
   }
 }
 
 @media only screen and (max-width: 475px) {
   #nav-wrap {
     height: 50px;
+    border-bottom: 1px solid #def2ff;
   }
   #about .sections .skills-grid .icon-wrap {
     height: 50px;
@@ -130,13 +139,27 @@
   #about .blurbs .blurb-section {
     width: 95%;
   }
+  #root #splash,
+  #root #about,
+  #root #projects,
+  #root #contact {
+    background-image: none;
+  }
+  #document #document-body * {
+    box-shadow: none;
+    -webkit-filter: none;
+    filter: none;
+  }
+  #root #contact input:focus,
+  #contact textarea:focus {
+    border: 1px solid #1da385;
+  }
 }
 
 @media (hover: none) {
-  * {
+  #document #document-body #root * {
     transition: none;
-  }
-  *:hover {
-    /* pointer-events: none !important; */
+    animation: none !important;
+    /* background-image: none !important; */
   }
 }
