@@ -22,13 +22,12 @@ export default {
   'Riva Negotiations': {
     date: 'In Active Development',
     techList: [
+      'AWS Lambda',
+      'AWS AppSync',
+      'DynamoDB',
       'Node.js',
       'React.js',
-      'AWS Lambda',
-      'DynamoDB',
-      'AWS AppSync',
       'Serverless.js',
-      'HTML5 Canvas',
     ],
     url: 'https://app.rivahq.com/',
     blurb: `Customer portal for Riva's job negotiation service`,
