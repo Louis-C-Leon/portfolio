@@ -25,9 +25,9 @@ export default {
       'AWS Lambda',
       'AWS AppSync',
       'DynamoDB',
+      'CloudFormation (with Serverless.js)',
       'Node.js',
       'React.js',
-      'Serverless.js',
     ],
     url: 'https://app.rivahq.com/',
     blurb: `Customer portal for Riva's job negotiation service`,
@@ -52,7 +52,7 @@ export default {
       'HTML5 Canvas',
     ],
     url: 'https://louis-c-leon.github.io/SympleSynth/',
-    github: 'https://github.com/Louis-C-Leon/SympleSynth',
+    github: 'https://github.com/louis-c-leon/SympleSynth',
     blurb: `JavaScript synthesizer built from scratch using Web Audio`,
     description: [
       `I designed <strong>SympleSynth</strong> to explore my interest in audio synthesis and to practice developing for the Web with no frontend frameworks. The instrument manages its own state and coordinates complex sound modulations using the JavaScript event loop.
