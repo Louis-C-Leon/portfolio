@@ -9,9 +9,33 @@ body {
   overflow-x: hidden;
   font-family: 'Lato', sans-serif;
   font-size: 10px;
-  color: #def2ff;
   /* scroll-behavior: smooth;
   scroll-behavior: ; */
+}
+
+.light-theme {
+  background-color: #fdf6e3;
+  color: #839496;
+}
+
+.light-theme .title-underline {
+  border: 3px solid #839496;
+}
+
+.light-theme h2 {
+  color: #cb4b16;
+}
+.dark-theme {
+  background-color: #002b36;
+  color: #839496;
+}
+
+.dark-theme strong {
+  color: #b58900;
+}
+
+.dark-theme .title-underline {
+  border: 3px solid #839496;
 }
 
 body.modal-open {
@@ -46,17 +70,20 @@ p {
   font-family: 'Lato';
 }
 
-strong {
-  color: #1da385;
-}
-
 a {
-  color: #1da385;
-  font-style: italic;
+  color: #6c71c4;
   text-decoration: none;
   cursor: pointer;
   transition: color 0.2s;
   padding: 0 4px;
+}
+
+a svg {
+  fill: #6c71c4;
+}
+
+a:hover svg {
+  fill: #d33682;
 }
 
 a.bold-link {
@@ -66,11 +93,15 @@ a.bold-link {
 }
 
 a:hover {
-  color: #dca11d;
+  color: #d33682;
   text-decoration: none;
   cursor: pointer;
 }
 
+a,
+a * {
+  transition: color 0.3s, width 0.3s, height 0.3s, transform 0.3s;
+}
 #root {
   min-height: 100%;
   width: 100%;
@@ -114,7 +145,6 @@ a:hover {
 }
 
 .title-underline {
-  border: 3px solid #def2ff;
   height: 0px;
   width: 150px;
   margin-bottom: 15px;
@@ -135,11 +165,9 @@ a:hover {
   margin: 20px;
 }
 
-.title-row a:hover img {
+.title-row a:hover svg {
   width: 110%;
   height: 110%;
-  -webkit-filter: drop-shadow(0px 0px 20px #dca11d);
-  filter: drop-shadow(0px 0px 20px #dca11d);
 }
 
 .title-row {

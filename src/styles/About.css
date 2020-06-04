@@ -1,22 +1,16 @@
 #about {
   /* position: relative; */
-  background-color: #def2ff;
-  background-image: url('../assets/wiggle.svg');
+  /* background-image: url('../assets/wiggle.svg'); */
   background-size: 8%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   padding: 20px 0;
-  color: #11151c;
   /* min-height: 100vh; */
 }
 
 #about a {
   font-size: 3rem;
-}
-
-#about .title-underline {
-  border: 3px solid #11151c;
 }
 
 #about h2 {
@@ -81,8 +75,8 @@
 #about .sections .skills-grid svg {
   height: 100%;
   width: auto;
-  -webkit-filter: drop-shadow(0px 0px 30px #1da385);
-  filter: drop-shadow(0px 0px 30px #1da385);
+  /* -webkit-filter: drop-shadow(0px 0px 30px #1da385); */
+  /* filter: drop-shadow(0px 0px 30px #1da385); */
 }
 
 #profile-photo {
@@ -90,29 +84,12 @@
   height: auto;
   margin: 20px;
   border-radius: 50%;
-  -webkit-filter: drop-shadow(0px 0px 30px #1da385);
-  filter: drop-shadow(0px 0px 30px #1da385);
+  /* -webkit-filter: drop-shadow(0px 0px 30px #1da385); */
+  /* filter: drop-shadow(0px 0px 30px #1da385); */
 }
 
 #about .blurbs {
   display: flex;
-}
-
-#about .blurbs .img-wrap {
-  background-color: #508072;
-  color: #f4ecff;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#about .blurbs img {
-  width: 50%;
-  height: auto;
 }
 
 #about .blurbs p {
@@ -149,8 +126,7 @@
   font-size: 7rem;
   letter-spacing: 12px;
   font-weight: 700;
-  color: #98accf;
-  text-shadow: 0px 0px 30px #1da385;
+  /* text-shadow: 0px 0px 30px #1da385; */
   opacity: 0.5;
 }
 
@@ -158,5 +134,4 @@
   z-index: 1;
   font-size: 1.5rem;
   padding: 0 25px;
-  color: #11151c;
 }

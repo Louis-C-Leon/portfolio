@@ -117,7 +117,7 @@ const Body = () => (
 
 export default function About({ reference }) {
   return (
-    <div ref={reference} id="about">
+    <div className="light-theme" ref={reference} id="about">
       <Header />
       <Body />
     </div>

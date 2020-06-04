@@ -4,27 +4,27 @@ import '../styles/NavDesktop.css';
 export default function Nav({ scrollTo, current }) {
   return (
     <div id="nav-wrap">
-      <div
+      <a
         id="nav-home"
         onClick={scrollTo('home')}
         className={`nav-link ${current === 'home'}`}>
         HOME
-      </div>
-      <div
+      </a>
+      <a
         onClick={scrollTo('about')}
         className={`nav-link ${current === 'about'}`}>
         ABOUT
-      </div>
-      <div
+      </a>
+      <a
         onClick={scrollTo('projects')}
         className={`nav-link ${current === 'projects'}`}>
         PROJECTS
-      </div>
-      <div
+      </a>
+      <a
         onClick={scrollTo('contact')}
         className={`nav-link ${current === 'contact'}`}>
         CONTACT
-      </div>
+      </a>
     </div>
   );
 }

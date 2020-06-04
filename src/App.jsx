@@ -104,7 +104,7 @@ export default function App() {
   );
 
   function scrollWithCallback(offset, callback) {
-    const onScroll = function() {
+    const onScroll = function () {
       if (window.pageYOffset === offset) {
         window.removeEventListener('scroll', onScroll);
         callback();
