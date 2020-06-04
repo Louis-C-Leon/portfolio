@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import axios from 'axios';
-import '../styles/Contact.css';
+import '../styles/Contact.scss';
 
 export default ({ reference }) => {
   const [email, setEmail] = useState('');

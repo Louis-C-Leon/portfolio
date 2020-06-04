@@ -9,9 +9,9 @@ import ProjectModal from './components/ProjectModal.jsx';
 import projectDict from './projectData.js';
 import Projects from './components/Projects.jsx';
 import Contact from './components/Contact.jsx';
-import './styles/reset.css';
-import './styles/App.css';
-import './styles/MediaRules.css';
+import './styles/reset.scss';
+import './styles/App.scss';
+import './styles/MediaRules.scss';
 
 export default function App() {
   const home = useRef(null);

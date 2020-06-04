@@ -2,7 +2,7 @@ import React from 'react';
 import Carousel from './Carousel.jsx';
 import gIcon from '../assets/icons/github.svg';
 import xIcon from '../assets/icons/close.svg';
-import '../styles/ProjectModal.css';
+import '../styles/ProjectModal.scss';
 
 export default function ProjectModal({ projects, select, selected, style }) {
   if (!selected) return null;

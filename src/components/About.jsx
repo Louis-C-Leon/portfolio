@@ -12,7 +12,7 @@ import rest from '../assets/icons/rest.svg';
 import postgres from '../assets/icons/postgres.svg';
 import dynamo from '../assets/icons/dynamo.svg';
 import resume from '../assets/louis-leon-resume.pdf';
-import '../styles/About.css';
+import '../styles/About.scss';
 
 const Header = () => (
   <div className="about-header">
@@ -27,20 +27,20 @@ const Header = () => (
     </a>
     <div className="blurbs">
       <div className="blurb-section">
-        <h2>FRONTEND</h2>
+        <h2>FRONT</h2>
         <p>
           I write performant, dynamic frontend code with a focus on user
-          experience. I currently use React for UI development, but I'm
-          comfortable working on legacy code, learning new frameworks, or using
-          vanilla HTML/CSS/JavaScript.
+          experience. I currently use React with TypeScript for UI development,
+          but I'm comfortable working on legacy code, learning new frameworks,
+          or using vanilla HTML/CSS/JavaScript.
         </p>
       </div>
       <div className="blurb-section">
-        <h2>BACKEND</h2>
+        <h2>BACK</h2>
         <p>
-          I've worked with many different server-side technologies and design
-          patterns, from MVC frameworks to serverless microservice architecture.
-          I currently use Serverless.js with AWS among other tools to design and
+          I've worked with various server-side technologies and design patterns,
+          from MVC frameworks to serverless microservice architecture. I
+          currently use Serverless.js with AWS among other tools to design and
           develop fast, scalable applications.
         </p>
       </div>

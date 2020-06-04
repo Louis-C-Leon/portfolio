@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import '../styles/NavMobile.css';
+import '../styles/NavMobile.scss';
 import openIcon from '../assets/icons/open-menu.svg';
 import closeIcon from '../assets/icons/close.svg';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/NavDesktop.css';
+import '../styles/NavDesktop.scss';
 
 export default function Nav({ scrollTo, current }) {
   return (

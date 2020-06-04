@@ -1,3 +1,4 @@
+@use 'colors';
 @import url('https://fonts.googleapis.com/css?family=Zilla+Slab:600i,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700&display=swap');
 
@@ -14,28 +15,28 @@ body {
 }
 
 .light-theme {
-  background-color: #fdf6e3;
-  color: #839496;
+  background-color: colors.$base3;
+  color: colors.$base0;
 }
 
 .light-theme .title-underline {
-  border: 3px solid #839496;
+  border: 3px solid colors.$base0;
 }
 
 .light-theme h2 {
-  color: #cb4b16;
+  color: colors.$blue;
 }
 .dark-theme {
-  background-color: #002b36;
-  color: #839496;
+  background-color: colors.$base03;
+  color: colors.$base0;
 }
 
 .dark-theme strong {
-  color: #b58900;
+  color: colors.$yellow;
 }
 
 .dark-theme .title-underline {
-  border: 3px solid #839496;
+  border: 3px solid colors.$base0;
 }
 
 body.modal-open {
@@ -71,7 +72,7 @@ p {
 }
 
 a {
-  color: #6c71c4;
+  color: colors.$violet;
   text-decoration: none;
   cursor: pointer;
   transition: color 0.2s;
@@ -79,11 +80,11 @@ a {
 }
 
 a svg {
-  fill: #6c71c4;
+  fill: colors.$violet;
 }
 
 a:hover svg {
-  fill: #d33682;
+  fill: colors.$magenta;
 }
 
 a.bold-link {
@@ -93,7 +94,7 @@ a.bold-link {
 }
 
 a:hover {
-  color: #d33682;
+  color: colors.$magenta;
   text-decoration: none;
   cursor: pointer;
 }
