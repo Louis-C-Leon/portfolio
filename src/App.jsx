@@ -36,7 +36,7 @@ export default function App() {
       body && body.current
         ? body.current.classList.contains('modal-open')
         : false;
-    console.log(modalOpen);
+
     const handleScroll = e => {
       if (body.current.classList.contains('modal-open')) return;
       const pos = window.scrollY + 50;
@@ -131,7 +131,7 @@ export default function App() {
 
   return (
     <>
-      {hasHover ? <Canvas /> : null}
+      {/* hasHover ? <Canvas /> : null */}
       <ProjectModal
         projects={projectDict}
         select={select}

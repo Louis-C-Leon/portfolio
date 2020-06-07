@@ -9,76 +9,69 @@
   box-sizing: border-box;
   padding: 20px 0;
   /* min-height: 100vh; */
-}
 
-#about a {
-  font-size: 3rem;
-}
+  a {
+    font-size: 3rem;
+  }
+  h2 {
+    padding: 5px 0;
+  }
 
-#about h2 {
-  padding: 5px 0;
-}
-
-#about .about-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#about .sections {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-grow: 2;
-}
-
-#about .sections .about-me,
-#about .sections .skills-grid {
-  width: 50%;
-  padding: 10px;
-}
-
-#about .sections .about-me {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#about .sections .about-me p {
-  width: 80%;
-  padding: 5 auto;
-}
-
-#about .sections .skills-grid {
-  display: grid;
-  grid-template-columns: 50% auto;
-  grid-template-rows: 25% 25% 25% auto;
-}
-
-#about .sections .skills-grid .skill {
-  width: 100%;
-  height: fit-content;
-  /* height: 100%; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#about .sections .skills-grid .icon-wrap {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  margin: 10px 0;
-}
-
-#about .sections .skills-grid img,
-#about .sections .skills-grid svg {
-  height: 100%;
-  width: auto;
-  /* -webkit-filter: drop-shadow(0px 0px 30px #1da385); */
-  /* filter: drop-shadow(0px 0px 30px #1da385); */
+  .about-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+  }
+  .sections {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-grow: 2;
+    .about-me,
+    .skills-grid {
+      width: 50%;
+      padding: 10px;
+    }
+    .about-me {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      p {
+        width: 95%;
+        padding: 5 auto;
+        font-size: 1.8rem;
+        line-height: 150%;
+        margin-bottom: 15px;
+      }
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 50% auto;
+      grid-template-rows: 25% 25% 25% auto;
+      .skill {
+        width: 100%;
+        height: fit-content;
+        /* height: 100%; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .icon-wrap {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+      }
+      img,
+      svg {
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
 }
 
 #profile-photo {
@@ -88,53 +81,4 @@
   border-radius: 50%;
   /* -webkit-filter: drop-shadow(0px 0px 30px #1da385); */
   /* filter: drop-shadow(0px 0px 30px #1da385); */
-}
-
-#about .blurbs {
-  display: flex;
-}
-
-#about .blurbs p {
-  font-size: 1.4rem;
-  font-style: italic;
-  font-weight: 400;
-  margin-bottom: 5px;
-}
-
-#about .sections p {
-  margin-bottom: 10px;
-}
-
-#about .blurbs .blurb-section {
-  position: relative;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 10px;
-  text-align: center;
-}
-
-#about .blurbs .blurb-section h2 {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  font-style: normal;
-  font-size: 9rem;
-  letter-spacing: 12px;
-  font-weight: 700;
-  /* text-shadow: 0px 0px 30px #1da385; */
-  opacity: 0.5;
-}
-
-#about .blurbs .blurb-section p {
-  z-index: 1;
-  font-size: 1.5rem;
-  padding: 0 25px;
-  color: colors.$red;
 }

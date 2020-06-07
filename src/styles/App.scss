@@ -17,26 +17,28 @@ body {
 .light-theme {
   background-color: colors.$base3;
   color: colors.$base0;
+  .title-underline {
+    border: 3px solid colors.$violet;
+  }
+  h1,
+  h2 {
+    color: colors.$violet;
+  }
 }
 
-.light-theme .title-underline {
-  border: 3px solid colors.$base0;
-}
-
-.light-theme h2 {
-  color: colors.$blue;
-}
 .dark-theme {
   background-color: colors.$base03;
   color: colors.$base0;
-}
-
-.dark-theme strong {
-  color: colors.$yellow;
-}
-
-.dark-theme .title-underline {
-  border: 3px solid colors.$base0;
+  strong {
+    color: colors.$yellow;
+  }
+  .title-underline {
+    border: 3px solid colors.$blue;
+  }
+  h1,
+  h2 {
+    color: colors.$blue;
+  }
 }
 
 body.modal-open {
@@ -72,7 +74,7 @@ p {
 }
 
 a {
-  color: colors.$violet;
+  color: colors.$cyan;
   text-decoration: none;
   cursor: pointer;
   transition: color 0.2s;
@@ -80,7 +82,7 @@ a {
 }
 
 a svg {
-  fill: colors.$violet;
+  fill: colors.$cyan;
 }
 
 a:hover svg {
@@ -167,8 +169,7 @@ a * {
 }
 
 .title-row a:hover svg {
-  width: 110%;
-  height: 110%;
+  transform: scale(1.2);
 }
 
 .title-row {

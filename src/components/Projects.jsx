@@ -37,7 +37,7 @@ const ProjectGrid = ({ projects, select }) => {
 
 export default function Projects({ reference, select, projects }) {
   return (
-    <div id="projects" ref={reference}>
+    <div className="dark-theme" id="projects" ref={reference}>
       <h1>Projects</h1>
       <div className="title-underline" />
       <ProjectGrid projects={projects} select={select} />
