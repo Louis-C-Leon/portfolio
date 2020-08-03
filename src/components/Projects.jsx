@@ -3,6 +3,15 @@ import '../styles/Projects.scss';
 
 const ProjectTile = ({ title, project, select }) => {
   const inline = { backgroundImage: `url(${project.thumbnail})` };
+  const colors = [
+    '#cb4b16',
+    '#dc322f',
+    '#d33682',
+    '#6c71c4',
+    '#268bd2',
+    '#2aa198',
+    '#859900',
+  ];
   return (
     <div style={inline} className="project-tile" onClick={select(title)}>
       <div className="darken" />
@@ -14,8 +23,11 @@ const ProjectTile = ({ title, project, select }) => {
       <div className="overlay">
         <p className="body">{project.blurb}</p>
         <div className="tech-list">
-          {project.techList.map(t => (
-            <div key={`${title}-${t}`} className="tech-item">
+          {project.techList.map((t, idx) => (
+            <div
+              key={`${title}-${t}`}
+              style={{ color: colors[idx % colors.length] }}
+              className="tech-item">
               {t}
             </div>
           ))}

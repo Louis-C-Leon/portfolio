@@ -134,26 +134,28 @@ const Skills = () => {
 
 const Bio = () => (
   <div className="about-me">
+    <img id="profile-photo" src={profile} alt="Louis Leon" />
     <p>
       Thanks for checking out my portfolio! I'm Louis, a bay area web developer.
       After studying philosophy, logic, and mathematics at the University of
-      Texas, I branched out to pursue a new path in software engineering. After
-      graduating in 2018, I got hooked on coding and building applications, and
-      completed the App Academy coding bootcamp in 2019. I love optimizing and
-      refining code and learning new technologies and skills!
+      Texas, I decided to branch out and pursue a new career in software
+      engineering. I graduated in 2018 and immediately got hooked on coding and
+      building applications; in 2019 I completed the App Academy coding bootcamp
+      and became a full-time web developer. I love optimizing and refining code
+      and learning new technologies and skills!
     </p>
     <p>
       As one of the first developers at Riva Negotiations, I've been working
       alongside a small team to build our scalable, customer-facing web app from
-      the ground up. I enjoy switching between frontend and backend projects and
-      working to maintain a healthy codebase.
+      the ground up. I'm passionate about improving our user experience, and I
+      enjoy switching between frontend and backend projects and working to
+      maintain a healthy codebase.
     </p>
     <p>
       I'm curious, analytical, and driven to refine my coding skills and
       development practices! When I'm not coding, I enjoy playing music, rock
       climbing, hiking, and exploring the bay area on foot or bike.
     </p>
-    <img id="profile-photo" src={profile} alt="Louis Leon" />
   </div>
 );
 

@@ -67,7 +67,7 @@ export default ({ reference }) => {
   }, [email, subject, message, setEmail, setNetworkError]);
 
   return (
-    <div id="contact" ref={reference}>
+    <div className="light-theme" id="contact" ref={reference}>
       <h1>Contact</h1>
       <div className="title-underline" />
       <div className="section-body-wrap">
