@@ -20,14 +20,12 @@ function send(email, subject, message) {
     },
     ReplyToAddresses: [email],
   };
-  console.log(params);
   return client.sendEmail(params).promise();
 }
 
 module.exports.sendEmail = async event => {
   try {
     const body = JSON.parse(event.body);
-    console.log(body);
     const { email, subject, message } = body;
     await send(email, subject, message);
     return {

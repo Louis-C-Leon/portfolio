@@ -13,7 +13,6 @@ const ProjectTile = ({ title, project, select, ...rest }) => {
     '#2aa198',
     '#859900',
   ];
-  console.log(title, select(title));
   return (
     <div
       style={inline}

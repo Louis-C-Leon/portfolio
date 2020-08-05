@@ -15,7 +15,6 @@ export default function Carousel({ slides, interval = 7000 }) {
     interval
   );
   const hasHover = useMediaQuery({ query: '(any-hover: hover)' });
-  // debugger;
   const { width: fullWidth } = style;
   const itemWidth = String(10000 / Number(fullWidth.slice(0, -1))) + '%';
   const itemStyle = { width: itemWidth };
