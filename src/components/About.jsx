@@ -152,7 +152,7 @@ const Bio = () => (
     <p>
       Thanks for checking out my portfolio! I'm Louis, a bay area web developer.
       After studying philosophy, logic, and mathematics at the University of
-      Texas, I decided to branch out and pursue a new career in software
+      Texas, I decided to branch out and pursue a career in software
       engineering. I graduated in 2018 and immediately got hooked on coding and
       building applications; in 2019 I completed the App Academy coding bootcamp
       and became a full-time web developer. I love optimizing and refining code
@@ -166,9 +166,10 @@ const Bio = () => (
       maintain a healthy codebase.
     </p>
     <p>
-      I'm curious, analytical, and driven to refine my coding skills and
-      development practices! When I'm not coding, I enjoy playing music, rock
-      climbing, hiking, and exploring the bay area on foot or bike.
+      I'm a curious, analytical thinker, and I'm always motivated to refine my
+      coding skills and development practices. When I'm not coding, I enjoy
+      playing music, rock climbing, hiking, and exploring the bay area on foot
+      or bike.
     </p>
   </div>
 );

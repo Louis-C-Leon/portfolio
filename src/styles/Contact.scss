@@ -83,4 +83,7 @@
 #contact .input-wrap {
   position: relative;
   width: 75%;
+  label {
+    display: none;
+  }
 }

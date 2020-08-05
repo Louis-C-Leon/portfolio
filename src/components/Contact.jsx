@@ -101,29 +101,38 @@ export default ({ reference }) => {
               ASAP!
             </p>
             <div className="input-wrap">
-              <input
-                type="text"
-                value={email}
-                onChange={handleChange('email')}
-                placeholder="Your email address"
-              />
+              <label>
+                Your Email
+                <input
+                  type="text"
+                  value={email}
+                  onChange={handleChange('email')}
+                  placeholder="Your email address"
+                />
+              </label>
               <p className="field-error">{emailError}</p>
             </div>
             <div className="input-wrap">
-              <input
-                type="text"
-                value={subject}
-                onChange={handleChange('subject')}
-                placeholder="Subject"
-              />
+              <label>
+                Message Subject
+                <input
+                  type="text"
+                  value={subject}
+                  onChange={handleChange('subject')}
+                  placeholder="Subject"
+                />
+              </label>
               <p className="field-error">{subjectError}</p>
             </div>
             <div className="input-wrap">
-              <textarea
-                value={message}
-                onChange={handleChange('message')}
-                placeholder="Message"
-              />
+              <label>
+                Message Body
+                <textarea
+                  value={message}
+                  onChange={handleChange('message')}
+                  placeholder="Message"
+                />
+              </label>
               <p className="field-error">{messageError}</p>
             </div>
             <HoverSendButton sendEmail={sendEmail} />
