@@ -1,5 +1,5 @@
 import React from 'react';
-import HoverItem from './HoverItem.jsx';
+import withHover from './withHover.jsx';
 import '../styles/Splash.scss';
 
 const GithubIcon = () => {
@@ -19,6 +19,25 @@ const LinkedInIcon = () => {
     </svg>
   );
 };
+const LinkedInLink = props => (
+  <a
+    className="hover-item"
+    href="https://www.linkedin.com/in/louis-c-leon/"
+    {...props}>
+    <LinkedInIcon />
+  </a>
+);
+const LinkedInWithHover = withHover(LinkedInLink);
+
+const GitHubLink = props => (
+  <a
+    className="hover-item"
+    href="https://www.linkedin.com/in/louis-c-leon/"
+    {...props}>
+    <GithubIcon />
+  </a>
+);
+const GitHubWithHover = withHover(GitHubLink);
 
 export default function Splash({ reference }) {
   return (
@@ -33,22 +52,8 @@ export default function Splash({ reference }) {
         <h2>Full-Stack Web Developer</h2>
       </div>
       <div className="title-row">
-        <HoverItem
-          href="https://www.linkedin.com/in/louis-c-leon/"
-          Component={props => (
-            <a {...props}>
-              <LinkedInIcon />
-            </a>
-          )}
-        />
-        <HoverItem
-          href="https://github.com/louis-c-leon"
-          Component={props => (
-            <a {...props}>
-              <GithubIcon />
-            </a>
-          )}
-        />
+        <LinkedInWithHover />
+        <GitHubWithHover />
       </div>
     </div>
   );

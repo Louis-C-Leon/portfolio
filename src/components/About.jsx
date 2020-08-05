@@ -1,5 +1,5 @@
-import React from 'react';
-import HoverItem from './HoverItem.jsx';
+import React, { useState } from 'react';
+import withHover from './withHover.jsx';
 import profile from '../assets/images/profile.jpg';
 import aws from '../assets/icons/aws.svg';
 import rails from '../assets/icons/rails.svg';
@@ -9,28 +9,34 @@ import graphql from '../assets/icons/graphql.svg';
 import python from '../assets/icons/python.svg';
 import nodejs from '../assets/icons/nodejs.svg';
 import htmlCssJs from '../assets/icons/html-css-js.png';
-import rest from '../assets/icons/rest.svg';
+import rest from '../assets/icons/rest.png';
 import postgres from '../assets/icons/postgres.svg';
 import dynamo from '../assets/icons/dynamo.svg';
 import resume from '../assets/louis-leon-resume.pdf';
 import '../styles/About.scss';
 
+const ResumeLink = props => (
+  <a
+    className="hover-item bold-link"
+    rel="noopener noreferrer"
+    target="_blank"
+    href={resume}
+    {...props}>
+    Resume
+  </a>
+);
+const HoverResumeLink = withHover(ResumeLink);
+
 const Header = () => (
   <div className="about-header">
     <h1>About Me</h1>
     <div className="title-underline" />
-    <HoverItem
-      className="bold-link"
-      Component={props => (
-        <a rel="noopener noreferrer" target="_blank" href={resume} {...props}>
-          Resume
-        </a>
-      )}
-    />
+    <HoverResumeLink />
   </div>
 );
 
-const Skill = ({ skill, color, key }) => {
+const Skill = ({ skill, color }) => {
+  const [isHover, setIsHover] = useState(false);
   // const color2 = '#002b36';
   const { icons, label } = skill;
   // Sweet regex to convert hex colors to RGB from:
@@ -85,16 +91,22 @@ const Skill = ({ skill, color, key }) => {
           </filter>
         </defs>
       </svg>
-      <div className="icon-wrap">
-        {icons.map(s => (
-          <img
-            style={{
-              filter: `grayscale(100%) brightness(200%) url(#${color})`,
-            }}
-            key={s}
-            src={s}
-            alt={label}
-          />
+      <div
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
+        className="icon-wrap">
+        {icons.map((s, idx) => (
+          <div className="layered-icon" key={`icon_${idx}`}>
+            <img
+              className="monochrome-icon"
+              style={{
+                filter: `grayscale(100%) brightness(200%) url(#${color})`,
+              }}
+              src={s}
+              alt={label}
+            />
+            <img className="color-icon" src={s} alt={label} />
+          </div>
         ))}
       </div>
       <p style={{ color }}>{label}</p>

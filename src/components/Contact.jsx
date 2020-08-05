@@ -1,7 +1,25 @@
 import React, { useState, useCallback } from 'react';
 import axios from 'axios';
-import HoverItem from './HoverItem.jsx';
+import withHover from './withHover.jsx';
 import '../styles/Contact.scss';
+
+const SendButton = ({ sendEmail, ...rest }) => (
+  <a onClick={sendEmail} className="hover-item bold-link" {...rest}>
+    SEND
+  </a>
+);
+const HoverSendButton = withHover(SendButton);
+
+const EmailLink = props => (
+  <a
+    style={{ padding: '0px 16px' }}
+    href="mailto:louistheleon@gmail.com"
+    className="hover-item"
+    {...props}>
+    louistheleon@gmail.com
+  </a>
+);
+const HoverEmailLink = withHover(EmailLink);
 
 export default ({ reference }) => {
   const [email, setEmail] = useState('');
@@ -108,24 +126,12 @@ export default ({ reference }) => {
               />
               <p className="field-error">{messageError}</p>
             </div>
-            <HoverItem
-              className="bold-link"
-              Component={props => (
-                <a onClick={sendEmail} className="bold-link" {...props}>
-                  SEND
-                </a>
-              )}
-            />
+            <HoverSendButton sendEmail={sendEmail} />
           </>
         )}
 
         <p>
-          or, just contact me at{' '}
-          <HoverItem
-            style={{ padding: '0px 16px' }}
-            href="mailto:louistheleon@gmail.com"
-            Component={props => <a {...props}>louistheleon@gmail.com</a>}
-          />
+          or, just contact me at <HoverEmailLink />
         </p>
       </div>
     </div>

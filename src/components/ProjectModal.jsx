@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel from './Carousel.jsx';
-import HoverItem from './HoverItem.jsx';
+import withHover from './withHover.jsx';
 import '../styles/ProjectModal.scss';
 
 const CloseIcon = props => (
@@ -23,6 +23,29 @@ const GithubIcon = () => {
   );
 };
 
+const CloseButton = ({ select, ...rest }) => (
+  <CloseIcon
+    className="hover-item modal-close"
+    alt="close"
+    onClick={select(null)}
+    {...rest}
+  />
+);
+
+const GithubLink = ({ href, ...rest }) => (
+  <a href={href} className="hover-item" {...rest}>
+    <GithubIcon />
+  </a>
+);
+const HoverGithubLink = withHover(GithubLink);
+
+const LiveLink = ({ href, ...rest }) => (
+  <a href={href} className="bold-link hover-item" {...rest}>
+    View Live Site
+  </a>
+);
+const HoverLiveLink = withHover(LiveLink);
+
 export default function ProjectModal({ projects, select, selected, style }) {
   if (!selected) return null;
   const currProject = projects[selected];
@@ -31,35 +54,17 @@ export default function ProjectModal({ projects, select, selected, style }) {
   return (
     <div className={`modal-darken ${style}`} onClick={select(null)}>
       <div className={`modal-body`} onClick={e => e.stopPropagation()}>
-        <HoverItem
-          className="modal-close"
-          onClick={select(null)}
-          alt="close"
-          Component={CloseIcon}
-        />
+        <CloseButton select={select} />
         <Carousel slides={gallery} />
-        {description.map(paragraph => (
-          <p dangerouslySetInnerHTML={{ __html: paragraph }} />
+        {description.map((paragraph, idx) => (
+          <p
+            key={`mod_par_${idx}`}
+            dangerouslySetInnerHTML={{ __html: paragraph }}
+          />
         ))}
         <div className="project-links">
-          {github ? (
-            <HoverItem
-              className="github-link"
-              href={github}
-              Component={props => (
-                <a {...props}>
-                  <GithubIcon />
-                </a>
-              )}
-            />
-          ) : null}
-          {url ? (
-            <HoverItem
-              className={`bold-link ${url ? '' : 'disabled'}`}
-              href={url}
-              Component={props => <a {...props}>View Live Site</a>}
-            />
-          ) : null}
+          {github ? <HoverGithubLink href={github} /> : null}
+          {url ? <HoverLiveLink href={url} /> : null}
         </div>
       </div>
     </div>

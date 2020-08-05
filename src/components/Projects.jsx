@@ -1,7 +1,8 @@
 import React from 'react';
+import withHover from './withHover.jsx';
 import '../styles/Projects.scss';
 
-const ProjectTile = ({ title, project, select }) => {
+const ProjectTile = ({ title, project, select, ...rest }) => {
   const inline = { backgroundImage: `url(${project.thumbnail})` };
   const colors = [
     '#cb4b16',
@@ -12,8 +13,13 @@ const ProjectTile = ({ title, project, select }) => {
     '#2aa198',
     '#859900',
   ];
+  console.log(title, select(title));
   return (
-    <div style={inline} className="project-tile" onClick={select(title)}>
+    <div
+      style={inline}
+      className="project-tile"
+      onClick={select(title)}
+      {...rest}>
       <div className="darken" />
       <div className="title-wrap">
         <p>{title}</p>
@@ -37,11 +43,13 @@ const ProjectTile = ({ title, project, select }) => {
   );
 };
 
+const HoverTile = withHover(ProjectTile);
+
 const ProjectGrid = ({ projects, select }) => {
   return (
     <div className="project-grid">
       {Object.entries(projects).map(([k, v]) => (
-        <ProjectTile key={k} title={k} project={v} select={select} />
+        <HoverTile key={k} title={k} project={v} select={select} />
       ))}
     </div>
   );

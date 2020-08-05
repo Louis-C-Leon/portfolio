@@ -34,7 +34,7 @@ export default function Canvas() {
   const particles = useRef([]);
   const canvas = useRef(null);
   const colorIdx = useRef(0);
-  const colors = ['#86D27B', '#1DA385', '#DEF2FF', '#98ACCF'];
+  const colors = ['#b58900', '#d33682', '#2aa198', '#268bd2', '#dc322f'];
 
   // resize canvas element:
   useEffect(() => {

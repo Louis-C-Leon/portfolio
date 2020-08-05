@@ -57,13 +57,47 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        p {
+          font-weight: 700;
+          transition: color 0.2s;
+        }
       }
       .icon-wrap {
-        width: 100%;
+        width: fit-content;
         height: 100px;
         display: flex;
         justify-content: center;
         margin: 10px 0;
+        .layered-icon {
+          position: relative;
+          height: 100%;
+          width: fit-content;
+        }
+        .monochrome-icon {
+          opacity: 1;
+          transition: opacity 0.5s;
+        }
+        .color-icon {
+          position: absolute;
+          height: 100%;
+          width: auto;
+          left: 0;
+          top: 0;
+          opacity: 0;
+          transition: opacity 0.5s;
+          z-index: 3;
+        }
+      }
+      .skill:hover {
+        .color-icon {
+          opacity: 1;
+        }
+        .monochrome-icon {
+          opacity: 0;
+        }
+        p {
+          color: black !important;
+        }
       }
       img,
       svg {

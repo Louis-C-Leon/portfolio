@@ -33,6 +33,9 @@ export function App() {
   const sectionRefs = { home, about, projects, contact, body };
   const [current, setCurrent] = useState('home');
 
+  // Is the page currently smooth scrolling?
+  const [navScroll, setNavScroll] = useState(false);
+
   // Sets the current section when user scrolls to a new section
   useEffect(() => {
     // if the window is scrolling because it's navigating to a new section,
@@ -54,13 +57,10 @@ export function App() {
       if (pos >= contact.current.offsetTop) {
         curr = 'contact';
       }
-      console.log(curr, current);
       if (curr !== current) setCurrent(curr);
     };
     if (!navScroll && !modalOpen) {
       window.addEventListener('scroll', handleScroll);
-    } else {
-      debugger;
     }
     return () => window.removeEventListener('scroll', handleScroll);
   }, [
@@ -80,9 +80,6 @@ export function App() {
     const listener = document.addEventListener('click', () => setHover(null));
     return document.removeEventListener('click', listener);
   }, [setHover]);
-
-  // Is the page currently smooth scrolling?
-  const [navScroll, setNavScroll] = useState(false);
 
   // State for managing active project modals
   const [selectedProject, setSelectedProject] = useState(null);
