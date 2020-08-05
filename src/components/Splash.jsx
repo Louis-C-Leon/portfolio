@@ -30,10 +30,7 @@ const LinkedInLink = props => (
 const LinkedInWithHover = withHover(LinkedInLink);
 
 const GitHubLink = props => (
-  <a
-    className="hover-item"
-    href="https://www.linkedin.com/in/louis-c-leon/"
-    {...props}>
+  <a className="hover-item" href="https://github.com/Louis-C-Leon" {...props}>
     <GithubIcon />
   </a>
 );
