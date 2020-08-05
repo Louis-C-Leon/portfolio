@@ -127,6 +127,9 @@ export default function Canvas() {
     if (rand > 1) edge = 1; // Bottom
     if (rand > 2) edge = 2; // Left
     if (rand > 3) edge = 3; // Right
+
+    // Once the edge is chosen, randomize the position on the edge;
+    // create a particle object with coordinates
     let particle = {};
     if (edge === 0 || edge === 1) {
       particle.y = edge === 0 ? y : y + height;
@@ -135,10 +138,22 @@ export default function Canvas() {
       particle.y = y + Math.random() * height;
       particle.x = edge === 2 ? x : x + width;
     }
-    return {
-      ...particle,
+
+    // Initial velocity is away from the center of the object with an
+    // amplitude of 1
+    const velocityVector = {
       vx: (particle.x - center.x) / 20,
       vy: (particle.y - center.y) / 20,
+    };
+    const { vx, vy } = velocityVector;
+    const velocityAmmt = Math.sqrt(vx * vx + vy * vy);
+    const velocityCorrection = 2 / velocityAmmt;
+
+    // Return particle with position, velocity, and color
+    return {
+      ...particle,
+      vx: vx * velocityCorrection,
+      vy: vy * velocityCorrection,
       color: randColor(),
     };
   };
