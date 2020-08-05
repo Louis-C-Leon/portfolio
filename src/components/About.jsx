@@ -1,4 +1,5 @@
 import React from 'react';
+import HoverItem from './HoverItem.jsx';
 import profile from '../assets/images/profile.jpg';
 import aws from '../assets/icons/aws.svg';
 import rails from '../assets/icons/rails.svg';
@@ -18,13 +19,14 @@ const Header = () => (
   <div className="about-header">
     <h1>About Me</h1>
     <div className="title-underline" />
-    <a
-      rel="noopener noreferrer"
-      target="_blank"
-      href={resume}
-      className="bold-link">
-      Resume
-    </a>
+    <HoverItem
+      className="bold-link"
+      Component={props => (
+        <a rel="noopener noreferrer" target="_blank" href={resume} {...props}>
+          Resume
+        </a>
+      )}
+    />
   </div>
 );
 

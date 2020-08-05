@@ -11,17 +11,11 @@
   font-size: 2rem;
   font-weight: 400;
   margin: 50px 0;
-  cursor: pointer;
-  transition: transform 0.2s, color 0.2s;
-}
-#nav-wrap .nav-link:hover,
-#nav-wrap .nav-link.true {
-  color: #d33682;
-  transform: scale(1.2);
 }
 #nav-wrap #nav-home {
-  transition: transform 0.2s, color 0.2s, width 0.5s, height 0.5s, margin 0.5s;
+  transition: transform 0.3s, color 0.3s, width 0.5s, height 0.5s, margin 0.5s !important;
 }
+
 #nav-wrap #nav-home.true {
   height: 0;
   width: 0;

@@ -1,4 +1,5 @@
 import React from 'react';
+import HoverItem from './HoverItem.jsx';
 import '../styles/Splash.scss';
 
 const GithubIcon = () => {
@@ -32,12 +33,22 @@ export default function Splash({ reference }) {
         <h2>Full-Stack Web Developer</h2>
       </div>
       <div className="title-row">
-        <a href="https://www.linkedin.com/in/louis-c-leon/">
-          <LinkedInIcon />
-        </a>
-        <a href="https://github.com/louis-c-leon">
-          <GithubIcon />
-        </a>
+        <HoverItem
+          href="https://www.linkedin.com/in/louis-c-leon/"
+          Component={props => (
+            <a {...props}>
+              <LinkedInIcon />
+            </a>
+          )}
+        />
+        <HoverItem
+          href="https://github.com/louis-c-leon"
+          Component={props => (
+            <a {...props}>
+              <GithubIcon />
+            </a>
+          )}
+        />
       </div>
     </div>
   );

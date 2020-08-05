@@ -1,30 +1,31 @@
 import React from 'react';
+import HoverItem from './HoverItem.jsx';
 import '../styles/NavDesktop.scss';
 
 export default function Nav({ scrollTo, current }) {
   return (
     <div id="nav-wrap">
-      <a
-        id="nav-home"
+      <HoverItem
+        className={`nav-link ${current === 'home'}`}
         onClick={scrollTo('home')}
-        className={`nav-link ${current === 'home'}`}>
-        HOME
-      </a>
-      <a
+        id="nav-home"
+        Component={props => <div {...props}>HOME</div>}
+      />
+      <HoverItem
+        className={`nav-link ${current === 'about'}`}
         onClick={scrollTo('about')}
-        className={`nav-link ${current === 'about'}`}>
-        ABOUT
-      </a>
-      <a
+        Component={props => <div {...props}>ABOUT</div>}
+      />
+      <HoverItem
+        className={`nav-link ${current === 'projects'}`}
         onClick={scrollTo('projects')}
-        className={`nav-link ${current === 'projects'}`}>
-        PROJECTS
-      </a>
-      <a
+        Component={props => <div {...props}>PROJECTS</div>}
+      />
+      <HoverItem
+        className={`nav-link ${current === 'contact'}`}
         onClick={scrollTo('contact')}
-        className={`nav-link ${current === 'contact'}`}>
-        CONTACT
-      </a>
+        Component={props => <div {...props}>CONTACT</div>}
+      />
     </div>
   );
 }

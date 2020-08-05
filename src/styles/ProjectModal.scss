@@ -38,11 +38,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: colors.$base3;
+  background-color: colors.$base02;
   border-radius: 6px;
-  width: 60%;
+  box-shadow: 0px 0px 8px colors.$yellow;
+  width: 900px;
   min-width: 900px;
-  padding: 25px;
+  padding: 40px;
   z-index: 6;
 }
 
@@ -64,13 +65,8 @@
   cursor: pointer;
 }
 
-#root .modal-body h1 {
-  font-family: 'Lato';
-  font-size: 4rem;
-}
-
 #root .modal-body p {
-  margin-bottom: 10px;
+  margin: 16px;
 }
 
 #root .modal-body strong {
@@ -78,7 +74,7 @@
   color: colors.$cyan;
   font-weight: 700;
   font-style: italic;
-  padding: 0 3px;
+  margin: 0 3px;
 }
 
 #root .modal-body .warn {
@@ -99,17 +95,6 @@
   svg {
     height: 100%;
     width: auto;
-  }
-  svg path {
-    transition: fill 0.3s;
-    fill: colors.$cyan;
-  }
-  &:hover {
-    svg path {
-      fill: colors.$magenta;
-    }
-    transform: scale(1.2);
-    color: colors.$magenta;
   }
 }
 

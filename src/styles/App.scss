@@ -81,14 +81,6 @@ a {
   padding: 0 4px;
 }
 
-a svg {
-  fill: colors.$cyan;
-}
-
-a:hover svg {
-  fill: colors.$magenta;
-}
-
 a.bold-link {
   font-family: 'Zilla Slab', serif;
   font-weight: 600;
@@ -101,10 +93,6 @@ a:hover {
   cursor: pointer;
 }
 
-a,
-a * {
-  transition: color 0.3s, width 0.3s, height 0.3s, transform 0.3s;
-}
 #root {
   min-height: 100%;
   width: 100%;
@@ -153,23 +141,16 @@ a * {
   margin-bottom: 15px;
 }
 
-.title-row a img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  transition: width 0.2s, height 0.2s;
-}
-
-.title-row a {
+.title-row .hover-item {
   position: relative;
   width: 50px;
   height: 50px;
   margin: 20px;
-}
-
-.title-row a:hover svg {
-  transform: scale(1.2);
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .title-row {
@@ -180,5 +161,28 @@ a * {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+#root .hover-item {
+  color: colors.$cyan;
+  transition: color 0.3s, transform 0.3s;
+  cursor: pointer;
+  display: inline-block;
+  path,
+  svg path {
+    transition: fill 0.3s;
+    fill: colors.$cyan;
+  }
+}
+
+#root .hover-item:hover,
+#root .hover-item.true {
+  color: colors.$magenta;
+  transform: scale(1.2);
+  path,
+  svg path {
+    fill: colors.$magenta;
+  }
 }

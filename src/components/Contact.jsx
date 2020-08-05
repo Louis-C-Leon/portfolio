@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import axios from 'axios';
+import HoverItem from './HoverItem.jsx';
 import '../styles/Contact.scss';
 
 export default ({ reference }) => {
@@ -107,15 +108,24 @@ export default ({ reference }) => {
               />
               <p className="field-error">{messageError}</p>
             </div>
-            <a onClick={sendEmail} className="bold-link">
-              SEND
-            </a>
+            <HoverItem
+              className="bold-link"
+              Component={props => (
+                <a onClick={sendEmail} className="bold-link" {...props}>
+                  SEND
+                </a>
+              )}
+            />
           </>
         )}
 
         <p>
           or, just contact me at{' '}
-          <a href="mailto:louistheleon@gmail.com">louistheleon@gmail.com</a>
+          <HoverItem
+            style={{ padding: '0px 16px' }}
+            href="mailto:louistheleon@gmail.com"
+            Component={props => <a {...props}>louistheleon@gmail.com</a>}
+          />
         </p>
       </div>
     </div>
