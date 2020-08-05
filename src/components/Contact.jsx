@@ -102,7 +102,7 @@ export default ({ reference }) => {
             </p>
             <div className="input-wrap">
               <label>
-                Your Email
+                <p style={{ display: 'none' }}>Your Email Address</p>
                 <input
                   type="text"
                   value={email}
@@ -114,7 +114,7 @@ export default ({ reference }) => {
             </div>
             <div className="input-wrap">
               <label>
-                Message Subject
+                <p style={{ display: 'none' }}>Email Body</p>
                 <input
                   type="text"
                   value={subject}
@@ -126,7 +126,7 @@ export default ({ reference }) => {
             </div>
             <div className="input-wrap">
               <label>
-                Message Body
+                <p style={{ display: 'none' }}>Message Body</p>
                 <textarea
                   value={message}
                   onChange={handleChange('message')}
