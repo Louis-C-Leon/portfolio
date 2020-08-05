@@ -1,0 +1,118 @@
+@use 'colors';
+
+#about {
+  /* position: relative; */
+  /* background-image: url('../assets/wiggle.svg'); */
+  background-size: 8%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 20px 0;
+  /* min-height: 100vh; */
+
+  a {
+    font-size: 3rem;
+  }
+  h2 {
+    padding: 5px 0;
+  }
+
+  .about-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+  }
+  .sections {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-grow: 2;
+    .about-me,
+    .skills-grid {
+      width: 50%;
+      padding: 10px;
+    }
+    .about-me {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      p {
+        width: 95%;
+        padding: 5 auto;
+        font-size: 1.8rem;
+        line-height: 150%;
+        margin-bottom: 15px;
+      }
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 50% auto;
+      grid-template-rows: 25% 25% 25% auto;
+      .skill {
+        width: 100%;
+        height: fit-content;
+        /* height: 100%; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p {
+          font-weight: 700;
+          transition: color 0.2s;
+        }
+      }
+      .icon-wrap {
+        width: fit-content;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+        .layered-icon {
+          position: relative;
+          height: 100%;
+          width: fit-content;
+        }
+        .monochrome-icon {
+          opacity: 1;
+          transition: opacity 0.5s;
+        }
+        .color-icon {
+          position: absolute;
+          height: 100%;
+          width: auto;
+          left: 0;
+          top: 0;
+          opacity: 0;
+          transition: opacity 0.5s;
+          z-index: 3;
+        }
+      }
+      .skill:hover {
+        .color-icon {
+          opacity: 1;
+        }
+        .monochrome-icon {
+          opacity: 0;
+        }
+        p {
+          color: black !important;
+        }
+      }
+      img,
+      svg {
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
+}
+
+#profile-photo {
+  width: 200px;
+  height: auto;
+  margin: 20px;
+  border-radius: 50%;
+  /* -webkit-filter: drop-shadow(0px 0px 30px #1da385); */
+  /* filter: drop-shadow(0px 0px 30px #1da385); */
+}

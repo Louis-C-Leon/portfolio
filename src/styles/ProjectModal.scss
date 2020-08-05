@@ -1,3 +1,5 @@
+@use 'colors';
+
 @keyframes open {
   from {
     opacity: 0;
@@ -23,24 +25,25 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #11151cc0;
+  background-color: #002b36c9;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 #root .modal-body {
+  color: colors.$base0;
   box-sizing: border-box;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #11151c;
+  background-color: colors.$base02;
   border-radius: 6px;
-  box-shadow: 0px 0px 20px #def2ff;
-  width: 60%;
+  box-shadow: 0px 0px 8px colors.$yellow;
+  width: 900px;
   min-width: 900px;
-  padding: 25px;
+  padding: 40px;
   z-index: 6;
 }
 
@@ -55,7 +58,6 @@
   height: 25px;
   width: 25px;
   z-index: 8;
-  color: #11151c;
   position: absolute;
   top: 15px;
   right: 15px;
@@ -63,24 +65,20 @@
   cursor: pointer;
 }
 
-#root .modal-body h1 {
-  font-family: 'Lato';
-  font-size: 4rem;
-}
-
 #root .modal-body p {
-  margin-bottom: 10px;
+  margin: 16px;
 }
 
 #root .modal-body strong {
   font-family: 'Zilla Slab', serif;
-  font-weight: 600;
+  color: colors.$cyan;
+  font-weight: 700;
   font-style: italic;
-  padding: 0 3px;
+  margin: 0 3px;
 }
 
 #root .modal-body .warn {
-  color: #dca11d;
+  color: colors.$red;
   font-style: italic;
 }
 
@@ -94,18 +92,15 @@
   height: 30px;
   display: flex;
   align-items: center;
+  svg {
+    height: 100%;
+    width: auto;
+  }
 }
 
 #root .modal-body .project-links .bold-link {
   padding: 0 30px;
   font-size: 2rem;
-}
-
-#root .modal-body .project-links .bold-link:hover,
-#root .modal-body .project-links .github-link:hover img {
-  color: #1da385;
-  -webkit-filter: drop-shadow(0px 0px 20px #def2ff);
-  filter: drop-shadow(0px 0px 20px #def2ff);
 }
 
 #root .modal-body .project-links .live-link.disabled {

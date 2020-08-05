@@ -1,10 +1,25 @@
 import React from 'react';
-import '../styles/Projects.css';
+import withHover from './withHover.jsx';
+import '../styles/Projects.scss';
 
-const ProjectTile = ({ title, project, select }) => {
+const ProjectTile = ({ title, project, select, ...rest }) => {
   const inline = { backgroundImage: `url(${project.thumbnail})` };
+  const colors = [
+    '#cb4b16',
+    '#dc322f',
+    '#d33682',
+    '#6c71c4',
+    '#268bd2',
+    '#2aa198',
+    '#859900',
+  ];
+  console.log(title, select(title));
   return (
-    <div style={inline} className="project-tile" onClick={select(title)}>
+    <div
+      style={inline}
+      className="project-tile"
+      onClick={select(title)}
+      {...rest}>
       <div className="darken" />
       <div className="title-wrap">
         <p>{title}</p>
@@ -14,8 +29,11 @@ const ProjectTile = ({ title, project, select }) => {
       <div className="overlay">
         <p className="body">{project.blurb}</p>
         <div className="tech-list">
-          {project.techList.map(t => (
-            <div key={`${title}-${t}`} className="tech-item">
+          {project.techList.map((t, idx) => (
+            <div
+              key={`${title}-${t}`}
+              style={{ color: colors[idx % colors.length] }}
+              className="tech-item">
               {t}
             </div>
           ))}
@@ -25,11 +43,13 @@ const ProjectTile = ({ title, project, select }) => {
   );
 };
 
+const HoverTile = withHover(ProjectTile);
+
 const ProjectGrid = ({ projects, select }) => {
   return (
     <div className="project-grid">
       {Object.entries(projects).map(([k, v]) => (
-        <ProjectTile key={k} title={k} project={v} select={select} />
+        <HoverTile key={k} title={k} project={v} select={select} />
       ))}
     </div>
   );
@@ -37,7 +57,7 @@ const ProjectGrid = ({ projects, select }) => {
 
 export default function Projects({ reference, select, projects }) {
   return (
-    <div id="projects" ref={reference}>
+    <div className="dark-theme" id="projects" ref={reference}>
       <h1>Projects</h1>
       <div className="title-underline" />
       <ProjectGrid projects={projects} select={select} />

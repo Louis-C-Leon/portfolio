@@ -1,20 +1,41 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, {
+  useContext,
+  useState,
+  useEffect,
+  useLayoutEffect,
+  useCallback,
+  useRef,
+} from 'react';
+import { AppContext } from '../App.jsx';
 
 export default function Canvas() {
+  const { hover } = useContext(AppContext);
+  const hoverRef = useRef(null);
+
+  useLayoutEffect(() => {
+    if (!hover) {
+      hoverRef.current = hover;
+      return;
+    }
+    const { x, y, width, height } = hover;
+    const center = { x: x + width / 2, y: y + height / 2 };
+    hover.center = center;
+    hoverRef.current = hover;
+  }, [hover]);
+
   const [size, setSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
   });
   // acceleration applied to each particle:
   const accel = useRef({ x: 0, y: 0.1 });
-  const mousePos = useRef(null);
   const ctx = useRef(null);
   const startTime = useRef(0);
   const particles = useRef([]);
   const canvas = useRef(null);
-  const emitting = useRef(null);
   const colorIdx = useRef(0);
-  const colors = ['#86D27B', '#1DA385', '#DEF2FF', '#98ACCF'];
+  const colors = ['#b58900', '#d33682', '#2aa198', '#268bd2', '#dc322f'];
+
   // resize canvas element:
   useEffect(() => {
     function handleResize() {
@@ -29,45 +50,7 @@ export default function Canvas() {
     };
   }, [setSize]);
 
-  // track mouse events:
-  useEffect(() => {
-    let timeout = null;
-    // On mouse move, track mouse position and start emitting particles until
-    // no mousemove events fire for .5s
-    function handleMouseMove(e) {
-      e.stopPropagation();
-      emitting.current = true;
-      mousePos.current = {
-        x: e.clientX,
-        y: e.clientY,
-      };
-      if (timeout) clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        emitting.current = false;
-      }, 500);
-    }
-    // Clear mouse position and stop emitting particles if mouse leaves window
-    function handleMouseOut(e) {
-      mousePos.current = null;
-      emitting.current = false;
-    }
-    // Set random "gravity" (acceleration vector) for particles on mouseclick
-    function randomAcceleration() {
-      const a = { x: (Math.random() - 0.5) / 2, y: Math.random() - 0.5 };
-      accel.current = a;
-    }
-
-    window.addEventListener('click', randomAcceleration);
-    window.addEventListener('mouseout', handleMouseOut);
-    window.addEventListener('mousemove', handleMouseMove);
-    return function cleanup() {
-      window.removeEventListener('click', randomAcceleration);
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseout', handleMouseOut);
-    };
-  }, [mousePos, accel, emitting]);
-
-  // Once the canvas element loads, save the context and start the animatino
+  // Once the canvas element loads, save the context and start the animation
   useEffect(() => {
     if (canvas.current && !ctx.current) {
       ctx.current = canvas.current.getContext('2d');
@@ -78,13 +61,11 @@ export default function Canvas() {
    * Particle object: { x: Number, y: Number, vx: Number, vy: Number }
    * x and y represent a position vector
    * vx and vy represent a velocity vector
-   */
-
-  /**
+   *
    * Animation functions/logic go below
    */
   function randomVal(max) {
-    return Math.random() * max - max / 2;
+    return Math.random() * max;
   }
   function drawParticle(p) {
     ctx.current.fillStyle = p.color;
@@ -137,6 +118,45 @@ export default function Canvas() {
     moveParticle(p);
     drawParticle(p);
   }
+
+  const generateNewParticle = hoverRect => {
+    const { x, y, width, height, center } = hoverRect;
+    // Randomize the edge of the rectangle that this particle spawns on
+    const rand = Math.random() * 4;
+    let edge = 0; // Top
+    if (rand > 1) edge = 1; // Bottom
+    if (rand > 2) edge = 2; // Left
+    if (rand > 3) edge = 3; // Right
+
+    // Once the edge is chosen, randomize the position on the edge;
+    // create a particle object with coordinates
+    let particle = {};
+    if (edge === 0 || edge === 1) {
+      particle.y = edge === 0 ? y : y + height;
+      particle.x = x + Math.random() * width;
+    } else {
+      particle.y = y + Math.random() * height;
+      particle.x = edge === 2 ? x : x + width;
+    }
+
+    // Initial velocity is away from the center of the object with an
+    // amplitude of 1
+    const velocityVector = {
+      vx: (particle.x - center.x) / 20,
+      vy: (particle.y - center.y) / 20,
+    };
+    const { vx, vy } = velocityVector;
+    const velocityAmmt = Math.sqrt(vx * vx + vy * vy);
+    const velocityCorrection = 2 / velocityAmmt;
+
+    // Return particle with position, velocity, and color
+    return {
+      ...particle,
+      vx: vx * velocityCorrection,
+      vy: vy * velocityCorrection,
+      color: randColor(),
+    };
+  };
   // draw animation frame
   const draw = useCallback(
     t => {
@@ -145,24 +165,18 @@ export default function Canvas() {
         startTime.current = t;
       }
       const progress = t - startTime.current;
-      if (progress > 30 && mousePos.current && emitting.current) {
+      if (progress > 30 && hoverRef.current) {
         startTime.current = t;
         // remove particle from list if we're at the max number;
         if (particles.current.length >= 100) particles.current.shift();
         // newParticle has random displacement from the mouse, and random velocity;
-        const newParticle = {
-          x: mousePos.current.x + randomVal(10),
-          y: mousePos.current.y + randomVal(10),
-          vx: randomVal(10),
-          vy: randomVal(10),
-          color: randColor(),
-        };
+        const newParticle = generateNewParticle(hoverRef.current);
         particles.current.push(newParticle);
       }
       particles.current.forEach(p => renderParticle(p, accel.current));
       window.requestAnimationFrame(draw);
     },
-    [mousePos, startTime, particles, canvas, ctx, accel, emitting]
+    [hoverRef, startTime, particles, canvas, ctx, accel]
   );
 
   useEffect(() => {

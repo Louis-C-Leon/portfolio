@@ -1,6 +1,25 @@
 import React, { useState, useCallback } from 'react';
 import axios from 'axios';
-import '../styles/Contact.css';
+import withHover from './withHover.jsx';
+import '../styles/Contact.scss';
+
+const SendButton = ({ sendEmail, ...rest }) => (
+  <a onClick={sendEmail} className="hover-item bold-link" {...rest}>
+    SEND
+  </a>
+);
+const HoverSendButton = withHover(SendButton);
+
+const EmailLink = props => (
+  <a
+    style={{ padding: '0px 16px' }}
+    href="mailto:louistheleon@gmail.com"
+    className="hover-item"
+    {...props}>
+    louistheleon@gmail.com
+  </a>
+);
+const HoverEmailLink = withHover(EmailLink);
 
 export default ({ reference }) => {
   const [email, setEmail] = useState('');
@@ -67,7 +86,7 @@ export default ({ reference }) => {
   }, [email, subject, message, setEmail, setNetworkError]);
 
   return (
-    <div id="contact" ref={reference}>
+    <div className="light-theme" id="contact" ref={reference}>
       <h1>Contact</h1>
       <div className="title-underline" />
       <div className="section-body-wrap">
@@ -107,15 +126,12 @@ export default ({ reference }) => {
               />
               <p className="field-error">{messageError}</p>
             </div>
-            <a onClick={sendEmail} className="bold-link">
-              SEND
-            </a>
+            <HoverSendButton sendEmail={sendEmail} />
           </>
         )}
 
         <p>
-          or, just contact me at{' '}
-          <a href="mailto:louistheleon@gmail.com">louistheleon@gmail.com</a>
+          or, just contact me at <HoverEmailLink />
         </p>
       </div>
     </div>

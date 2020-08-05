@@ -1,30 +1,29 @@
 import React from 'react';
-import '../styles/NavDesktop.css';
+import withHover from './withHover.jsx';
+import '../styles/NavDesktop.scss';
+
+const NavLink = props => {
+  const { name, current, scrollTo, ...rest } = props;
+  return (
+    <div
+      className={`hover-item nav-link ${current === name}`}
+      onClick={scrollTo(name)}
+      id={name === 'home' ? 'nav-home' : ''}
+      {...rest}>
+      {name.toUpperCase()}
+    </div>
+  );
+};
+
+const HoverNav = withHover(NavLink);
 
 export default function Nav({ scrollTo, current }) {
   return (
     <div id="nav-wrap">
-      <div
-        id="nav-home"
-        onClick={scrollTo('home')}
-        className={`nav-link ${current === 'home'}`}>
-        HOME
-      </div>
-      <div
-        onClick={scrollTo('about')}
-        className={`nav-link ${current === 'about'}`}>
-        ABOUT
-      </div>
-      <div
-        onClick={scrollTo('projects')}
-        className={`nav-link ${current === 'projects'}`}>
-        PROJECTS
-      </div>
-      <div
-        onClick={scrollTo('contact')}
-        className={`nav-link ${current === 'contact'}`}>
-        CONTACT
-      </div>
+      <HoverNav current={current} name="home" scrollTo={scrollTo} />
+      <HoverNav current={current} name="about" scrollTo={scrollTo} />
+      <HoverNav current={current} name="projects" scrollTo={scrollTo} />
+      <HoverNav current={current} name="contact" scrollTo={scrollTo} />
     </div>
   );
 }
