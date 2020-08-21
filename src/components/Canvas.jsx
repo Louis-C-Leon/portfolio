@@ -2,7 +2,6 @@ import React, {
   useContext,
   useState,
   useEffect,
-  useLayoutEffect,
   useCallback,
   useRef,
 } from 'react';
@@ -12,7 +11,9 @@ export default function Canvas() {
   const { hover } = useContext(AppContext);
   const hoverRef = useRef(null);
 
-  useLayoutEffect(() => {
+  // Get hovered DOM rectangle from context; calculate
+  // center point; set mutable ref variable to rectangle
+  useEffect(() => {
     if (!hover) {
       hoverRef.current = hover;
       return;
@@ -172,6 +173,9 @@ export default function Canvas() {
         // newParticle has random displacement from the mouse, and random velocity;
         const newParticle = generateNewParticle(hoverRef.current);
         particles.current.push(newParticle);
+      } else if (progress > 30 && particles.current.length) {
+        startTime.current = t;
+        particles.current.shift();
       }
       particles.current.forEach(p => renderParticle(p, accel.current));
       window.requestAnimationFrame(draw);
