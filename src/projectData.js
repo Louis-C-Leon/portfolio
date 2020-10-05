@@ -20,7 +20,7 @@ import r3 from "./assets/images/Riva-gallery-4.png";
 
 export default {
   "Riva Negotiations": {
-    date: "In Active Development",
+    date: "2020",
     techList: [
       "AWS Lambda",
       "AWS AppSync",
@@ -33,8 +33,8 @@ export default {
     blurb: `Customer portal for Riva's job negotiation service`,
     description: [
       `For my first professional project, I worked in a small team of developers to build <strong>Riva's</strong> customer-facing web app.
-      Riva's negotiation service empowers our customers to earn their worth by putting them in contact with an expert coach
-      and streamlining the negotiating process. I worked to enable our customers and coaching team by implementing 
+      Riva's negotiation service empowers their customers to earn their worth by putting them in contact with an expert coach
+      and streamlining the negotiating process. I worked to enable Riva's customers and coaching team by implementing 
       features including secure live chat, flexible payment plans, and integration with external CRM services.`,
     ],
     thumbnail: rt,
