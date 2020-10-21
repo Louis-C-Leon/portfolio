@@ -36,7 +36,6 @@ const Header = () => (
 );
 
 const Skill = ({ skill, color }) => {
-  const [isHover, setIsHover] = useState(false);
   // const color2 = '#002b36';
   const { icons, label } = skill;
   // Sweet regex to convert hex colors to RGB from:
@@ -84,23 +83,26 @@ const Skill = ({ skill, color }) => {
 
   return (
     <div className="skill">
-      <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}>
+      <svg
+        in="SourceGraphic"
+        onLoad={() => console.log(color, 'filter loaded')}
+        style={{ height: 0, width: 0 }}
+        xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <filter id={`${color}`}>
+          <filter id={`${color.slice(1)}`}>
             <feColorMatrix type="matrix" values={colorMatrix.join(' ')} />
           </filter>
         </defs>
       </svg>
-      <div
-        onMouseEnter={() => setIsHover(true)}
-        onMouseLeave={() => setIsHover(false)}
-        className="icon-wrap">
+      <div className="icon-wrap">
         {icons.map((s, idx) => (
           <div className="layered-icon" key={`icon_${idx}`}>
             <img
               className="monochrome-icon"
               style={{
-                filter: `grayscale(100%) brightness(200%) url(#${color})`,
+                filter: `grayscale(100%) brightness(200%) url(#${color.slice(
+                  1
+                )})`,
               }}
               src={s}
               alt={label}
@@ -159,9 +161,9 @@ const Bio = () => (
       and learning new technologies and skills!
     </p>
     <p>
-      As one of the first developers at Riva Negotiations, I've been working
+      As one of the first developers at Riva Negotiations, I have worked
       alongside a small team to build our scalable, customer-facing web app from
-      the ground up. I'm passionate about improving our user experience, and I
+      the ground up. I'm passionate about improving user experiences, and I
       enjoy switching between frontend and backend projects and working to
       maintain a healthy codebase.
     </p>
