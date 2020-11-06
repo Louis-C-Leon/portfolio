@@ -77,7 +77,6 @@ export function App() {
   const [modalStyle, setModalStyle] = useState('');
 
   // Media queries to conditionally render some components
-  const hasHover = useMediaQuery({ query: '(any-hover: hover)' });
   const hamburger = useMediaQuery({ query: '(max-width: 475px)' });
 
   // Helper FN disables scrolling when project modal is open
@@ -149,7 +148,7 @@ export function App() {
 
   return (
     <AppContext.Provider value={{ hover, setHover }}>
-      {hasHover ? <Canvas /> : null}
+      {hamburger ? null : <Canvas />}
       <ProjectModal
         projects={projectDict}
         select={select}

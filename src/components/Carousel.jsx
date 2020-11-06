@@ -3,34 +3,25 @@
 // https://gist.github.com/FlorianRappl/fee731eea985d983fc48d10c648ecb17
 
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { useCarousel } from '../hooks/useCarousel.js';
 import arrow from '../assets/icons/down-arrow.svg';
 import '../styles/Carousel.scss';
 
 export default function Carousel({ slides, interval = 7000 }) {
   const length = slides.length;
-  const { active, setActive, next, prev, handlers, style } = useCarousel(
-    length,
-    interval
-  );
-  const hasHover = useMediaQuery({ query: '(any-hover: hover)' });
+  const { next, prev, handlers, style } = useCarousel(length, interval);
   const { width: fullWidth } = style;
   const itemWidth = String(10000 / Number(fullWidth.slice(0, -1))) + '%';
   const itemStyle = { width: itemWidth };
   return (
     length > 0 && (
       <div className="carousel">
-        {hasHover ? (
-          <>
-            <div className="carousel-prev" onClick={prev}>
-              <img src={arrow} alt="arrow" />
-            </div>
-            <div className="carousel-next" onClick={next}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </>
-        ) : null}
+        <div className="carousel-prev" onClick={prev}>
+          <img src={arrow} alt="arrow" />
+        </div>
+        <div className="carousel-next" onClick={next}>
+          <img src={arrow} alt="arrow" />
+        </div>
         <div className="carousel-content" {...handlers} style={style}>
           <div className="carousel-item" style={itemStyle}>
             <img
