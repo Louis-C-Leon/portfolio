@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import withHover from './withHover.jsx';
 import profile from '../assets/images/profile.jpg';
+import typescript from '../assets/icons/typescript.svg';
+import express from '../assets/icons/expressjs.svg';
 import aws from '../assets/icons/aws.svg';
 import rails from '../assets/icons/rails.svg';
 import react from '../assets/icons/react.svg';
-import redux from '../assets/icons/redux.svg';
 import graphql from '../assets/icons/graphql.svg';
-import python from '../assets/icons/python.svg';
+import nest from '../assets/icons/NestJS.svg';
 import nodejs from '../assets/icons/nodejs.svg';
 import htmlCssJs from '../assets/icons/html-css-js.png';
 import rest from '../assets/icons/rest.png';
@@ -21,8 +22,9 @@ const ResumeLink = props => (
     rel="noopener noreferrer"
     target="_blank"
     href={resume}
-    {...props}>
-    Resume
+    {...props}
+  >
+    PDF Resume
   </a>
 );
 const HoverResumeLink = withHover(ResumeLink);
@@ -87,7 +89,8 @@ const Skill = ({ skill, color }) => {
         in="SourceGraphic"
         onLoad={() => console.log(color, 'filter loaded')}
         style={{ height: 0, width: 0 }}
-        xmlns="http://www.w3.org/2000/svg">
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <defs>
           <filter id={`${color.slice(1)}`}>
             <feColorMatrix type="matrix" values={colorMatrix.join(' ')} />
@@ -118,14 +121,16 @@ const Skill = ({ skill, color }) => {
 
 const Skills = () => {
   const skillArr = [
-    { icons: [rails], label: 'Ruby on Rails' },
-    { icons: [react, redux], label: 'React and Redux' },
+    { icons: [typescript], label: 'TypeScript' },
+    { icons: [react], label: 'React' },
     { icons: [htmlCssJs], label: 'HTML/CSS/JavaScript' },
-    { icons: [aws], label: 'Amazon Web Services' },
+    { icons: [aws], label: 'Amazon Web Services (AWS)' },
     { icons: [nodejs], label: 'Node.js' },
-    { icons: [python], label: 'Python' },
+    { icons: [express], label: 'Express.js' },
+    { icons: [nest], label: 'NestJS' },
     { icons: [dynamo, postgres], label: 'SQL and NoSQL databases' },
-    { icons: [rest, graphql], label: 'REST and GraphQl APIs' },
+    { icons: [rest, graphql], label: 'REST and GraphQl API development' },
+    { icons: [rails], label: 'Ruby on Rails' },
   ];
   const colors = [
     '#cb4b16',
@@ -152,20 +157,30 @@ const Bio = () => (
   <div className="about-me">
     <img id="profile-photo" src={profile} alt="Louis Leon" />
     <p>
-      Thanks for checking out my portfolio! I'm Louis, a bay area web developer.
-      After studying philosophy, logic, and mathematics at the University of
-      Texas, I decided to branch out and pursue a career in software
-      engineering. I graduated in 2018 and immediately got hooked on coding and
-      building applications; in 2019 I completed the App Academy coding bootcamp
-      and became a full-time web developer. I love optimizing and refining code
-      and learning new technologies and skills!
+      Thanks for checking out my portfolio site! I'm a bay area full-stack
+      developer with four years of experience building products with fast-paced
+      startups. I'm currently a TypeScript/JavaScript developer with a focus on
+      the frontend and expertise in React. I also have experience building REST
+      and GraphQL APIs and microservices using frameworks like Express.js,
+      Nest.js, and Serverless. I have worked with multiple relational and
+      non-relational databases (e.g. MySQL & PostgreSQL, MongoDB, DynamoDB), and
+      I've designed data models and schema from product requirements. I also
+      have some experience deploying servers and cloud infrastructure on AWS.
+      While I'm most experienced with TypeScript/JavaScript, I'm also familiar
+      with Python, Ruby, and Java, and I love learning new languages and
+      libraries! I believe in collaboration and sharing expertise, so I strive
+      to participate in code review, writing documentation, and pair
+      programming.
     </p>
     <p>
-      As one of the first developers at Riva Negotiations, I have worked
-      alongside a small team to build our scalable, customer-facing web app from
-      the ground up. I'm passionate about improving user experiences, and I
-      enjoy switching between frontend and backend projects and working to
-      maintain a healthy codebase.
+      At Robin Healthcare, I worked across multiple teams as we migrated our
+      business to the next version of our medical scribing app. I was the main
+      product developer on many features that significantly increase the
+      efficiency and value of our service. These included clinical note
+      templates, site-wide hotkeys, contextual form suggestions, and managing
+      2FA logins for scribes. I also contributed to building our internal
+      GraphQL API serving 10+ apps and services, adding documentation and tests
+      as well as new functionality.
     </p>
     <p>
       I'm a curious, analytical thinker, and I'm always motivated to refine my

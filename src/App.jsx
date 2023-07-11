@@ -31,6 +31,7 @@ export function App() {
   const content = useRef(null);
   const body = useRef(document.querySelector('body'));
   const sectionRefs = { home, about, projects, contact, body };
+
   const [current, setCurrent] = useState('home');
 
   // Is the page currently smooth scrolling?
